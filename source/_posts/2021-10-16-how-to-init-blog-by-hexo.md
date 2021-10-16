@@ -1,5 +1,5 @@
 ---
-title: how-to-init-blog-by-hexo
+title: 使用hexo和github搭建自己的blog
 date: 2021-10-16 22:40:53
 tags:
 ---
