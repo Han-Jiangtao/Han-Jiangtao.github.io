@@ -80,6 +80,17 @@ jobs:
 ```
 > 3. 将上述两步的修改，推送至git仓库的source分支。访问username.github.io就可以看到hexo的欢迎页了。
 
+# 5. 更换theme（建站换主题要一气呵成嘛）
+> 1. 选定一个自己喜欢的主题（直接在github搜索hexo-theme）
+> 2. 本教程以换用material为demo，图为material的git主页：{% hexo-theme-material.jpg %}
+> 3. 点击上图中fork按钮，fork至自己的仓库
+> 4. git submodule init
+> 5. git submodule add git@github.com:xxxxx/hexo-theme-material.git themes/material将我们fork出来的theme仓库，作为hexo的子模块（git链接为我们上面fork出来的仓库链接）
+> 6. git submodule sync
+> 7. git submodule update 上述两步将子模块内容拉取至本地
+> 8. 修改_config.yml中theme: xxxx为theme: material，theme:后面跟的是git theme子模块的文件夹的名字
+> 9. git add .&& git commit -m "change theme" && git push origin source将修改推送至git仓库，访问username.github.io看已经变成我们新更换的主题。
+
 # 附加内容
 ## 1. 在.github/workflows/pages.yml中添加的with代码块:
-我们在git仓库的source分支维护了hexo的源内容，包括本教程的后半部更换blog的theme，theme是在themes/文件夹下维护的，且通过本教程通过submodule来维护其链接，那么在git pages的action行为中，单拉git仓的source分支，是缺失了themes文件夹下内容的下载的，那么添加的with代码块的作用就是：git action的时候将source分支和themes submodule都下载，后续的action才能执行，详细的action行为可以在git仓库的actions页签查看。
+我们在git仓库的source分支维护了hexo的源内容，包括本教程的后半部更换blog的theme，theme是在themes/文件夹下维护的，且通过本教程通过git submodule来维护其链接，那么在git pages的action行为中，单拉git仓的source分支，是缺失了themes文件夹下内容的下载的，那么添加的with代码块的作用就是：git action的时候将source分支和themes submodule都下载，后续的action才能执行，详细的action行为可以在git仓库的actions页签查看。
