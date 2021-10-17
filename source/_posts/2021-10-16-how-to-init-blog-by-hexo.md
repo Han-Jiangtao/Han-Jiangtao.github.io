@@ -28,3 +28,58 @@ tags:
 > 7. git branch -M source将源文件提交到source分支，后续gitpages在master分支展现
 > 8. git remote add origin git@github.com:xxxx.git最后的这个git链接为2.2操作git网站的你自己的git仓链接
 > 9. git push -u origin source 将hexo init完的内容推送至git仓库
+
+# 4. 修改站点文件（即blog文件夹下的文体）以达到访问username.github.io来访问我们blog的目的
+> 1. 将下面内容添加至package.json（如果已经有就跳过）
+```Json
+{
+    
+  "scripts": {
+    "build": "hexo generate"
+  },
+  ...
+}
+```
+> 2. 新建.github/workflows/pages.yml，并添加如下内容：
+```Yaml
+name: Pages
+
+on:
+  push:
+    branches:
+      - source  # default branch
+
+jobs:
+  pages:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          submodules: 'true' #敲重点，这里基本上没有已有教程会特意强调这里，这个with块，作用很大。详见附加内容1
+      - name: Use Node.js 12.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+      - name: Cache NPM dependencies
+        uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-npm-cache
+          restore-keys: |
+            ${{ runner.OS }}-npm-cache
+      - name: Install Dependencies
+        run: npm install
+      - name: Build
+        run: npm run build
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
+          publish_branch: master  # deploying branch
+```
+> 3. 将上述两步的修改，推送至git仓库的source分支。访问username.github.io就可以看到hexo的欢迎页了。
+
+# 附加内容
+## 1. 在.github/workflows/pages.yml中添加的with代码块:
+我们在git仓库的source分支维护了hexo的源内容，包括本教程的后半部更换blog的theme，theme是在themes/文件夹下维护的，且通过本教程通过submodule来维护其链接，那么在git pages的action行为中，单拉git仓的source分支，是缺失了themes文件夹下内容的下载的，那么添加的with代码块的作用就是：git action的时候将source分支和themes submodule都下载，后续的action才能执行，详细的action行为可以在git仓库的actions页签查看。
