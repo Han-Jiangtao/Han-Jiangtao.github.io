@@ -31,6 +31,7 @@ tags:
 
 # 4. 修改站点文件（即blog文件夹下的文体）以达到访问username.github.io来访问我们blog的目的
 > 1. 将下面内容添加至package.json（如果已经有就跳过）
+
 ```Json
 {
     
@@ -40,6 +41,7 @@ tags:
   ...
 }
 ```
+
 > 2. 新建.github/workflows/pages.yml，并添加如下内容：
 ```Yaml
 name: Pages
@@ -82,7 +84,7 @@ jobs:
 
 # 5. 更换theme（建站换主题要一气呵成嘛）
 > 1. 选定一个自己喜欢的主题（直接在github搜索hexo-theme）
-> 2. 本教程以换用material为demo，图为material的git主页：{% hexo-theme-material.jpg %}
+> 2. 本教程以换用material为demo，图为material的git主页： {% asset_img hexo-theme-material.jpg %}
 > 3. 点击上图中fork按钮，fork至自己的仓库
 > 4. git submodule init
 > 5. git submodule add git@github.com:xxxxx/hexo-theme-material.git themes/material将我们fork出来的theme仓库，作为hexo的子模块（git链接为我们上面fork出来的仓库链接）
