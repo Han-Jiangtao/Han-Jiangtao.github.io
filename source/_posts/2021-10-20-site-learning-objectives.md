@@ -5,13 +5,11 @@ tags:
 ---
 本站搭建旨在记录和指导自己的学习过程和目标
 ---
-~~[利用hexo搭建一个基本的blog]({% post_link 2021-10-16-how-to-init-blog-by-hexo %})~~
+~~{% post_link how-to-init-blog-by-hexo 利用hexo搭建一个基本的blog %}~~ ---- done
 
-[利用hexo搭建一个基本的blog]({% post_link 2021-10-16-how-to-init-blog-by-hexo %})
+{% post_link md-learning 深入学习使用markdown语法 %} ---- doing
 
-深入学习使用markdown语法
+markdown引申HTML ---- hold
 
-markdown引申HTML
-
-markdown引申graphviz
+markdown引申graphviz ---- hold
 
