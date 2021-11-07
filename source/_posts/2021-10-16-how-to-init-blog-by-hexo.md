@@ -2,7 +2,8 @@
 title: 使用hexo和github搭建自己的blog
 post_title: 使用hexo和github搭建自己的blog
 date: 2021-10-16 22:40:53
-tags:
+tags: 经验
+categories: 经验
 ---
 开始记录如何通过hexo和github搭建自己的blog
 网上蛮多教程在如何发布blog和管理blog本身内容语焉不详，我写这个教程主要是将整个端到端流程记录下来，包括如何将自己买的域名解析至github pages

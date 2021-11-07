@@ -1,7 +1,8 @@
 ---
 title: 基于GFM学习markdown
 date: 2021-10-20 22:29:55
-tags:
+tags: 经验
+categories: 经验
 ---
 [GitHub Flavored Markdown Spec](https://github.github.com/gfm/)
 
