@@ -1,3 +1,6 @@
 [submodule "themes/material"]
 	path = themes/material
 	url = git@github.com:Han-Jiangtao/hexo-theme-material.git
+[submodule "themes/volantis"]
+	path = themes/volantis
+	url = git@github.com:Han-Jiangtao/hexo-theme-volantis.git
