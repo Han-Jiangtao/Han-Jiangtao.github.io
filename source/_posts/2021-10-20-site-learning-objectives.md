@@ -1,8 +1,8 @@
 ---
 title: 建站初衷
 date: 2021-10-20 22:59:52
-tags: Flags
-categories: Flags
+tags:
+- [Flags]
 ---
 本站搭建旨在记录和指导自己的学习过程和目标
 ---
