@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://han-jiangtao.github.io/categories/经验/"/>
+  <link rel="canonical" href="https://han-jiangtao.github.io/tags/linux-oom/"/>
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -20,16 +20,16 @@
   <meta content="HanJiangtao&#39;s Blog" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1637157003251" as="style">
+  <link rel="preload" href="/css/style.css?time=1637157003261" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
-  <title>分类：经验 - HanJiangtao's Blog</title>
+  <title>标签：linux,oom - HanJiangtao's Blog</title>
   <meta name="keywords" content="null">
   <meta property="og:type" content="website">
 <meta property="og:title" content="HanJiangtao&#39;s Blog">
-<meta property="og:url" content="https://han-jiangtao.github.io/categories/%E7%BB%8F%E9%AA%8C/index.html">
+<meta property="og:url" content="https://han-jiangtao.github.io/tags/linux-oom/index.html">
 <meta property="og:site_name" content="HanJiangtao&#39;s Blog">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
@@ -1654,8 +1654,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1637157003251" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1637157003251"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1637157003261" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1637157003261"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2436,7 +2436,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
         
           <div class='post-wrapper'>
             <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/10/16/how-to-init-blog-by-hexo/">
+  <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="HanJiangtao's Blog">
   </span>
@@ -2450,19 +2450,15 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
     <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/10/16/how-to-init-blog-by-hexo/"  itemprop="url">
-        使用hexo和github搭建自己的blog
+      <a href="/2021/11/17/out-of-memory-locate/"  itemprop="url">
+        定位linux应用oom问题
       </a>
     </h2>
   
   <div class='md' itemprop="articleBody">
     
       
-        开始记录如何通过hexo和github搭建自己的blog网上蛮多教程在如何发布blog和管理blog本身内容语焉不详，我写这个教程主要是将整个端到端流程记录下来，包括如何将自己买的域名解析至github pages
-1. 安装hexo（centos）
-
-yum install npm 安装npm包管理器
-npm config set registry https://registry.npm...
+        我运行一个程序在服务器上，没有core文件产生，且程序异常退出，退出码为137（128+9）那么意味着我的程序，收到了一个kill -9信号，但是我十分确认的是，没有主动的去发送此信号google一下，大家遇到的exit code为137的问题多为oom（out of memory）我的环境是ubuntu x86_64内存1.5TB.ulimit -a查看max memory size为un...
       
     
   </div>
@@ -2470,20 +2466,12 @@ npm config set registry https://registry.npm...
     <div class='meta-v3' line_style='solid'>
       <div>
         
-        <time itemprop="dateCreated datePublished" datetime="2021-10-16T22:40:53+00:00">2021-10-16</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/%E7%BB%8F%E9%AA%8C/">经验</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/%E7%BB%8F%E9%AA%8C/" itemprop="url"><span itemprop="name">经验</span></a>
-            </span>
-          
+        <time itemprop="dateCreated datePublished" datetime="2021-11-17T21:28:58+00:00">2021-11-17</time>
         
       </div>
       
         <div>
-          <a class='readmore' href='/2021/10/16/how-to-init-blog-by-hexo/' itemprop="url">
+          <a class='readmore' href='/2021/11/17/out-of-memory-locate/' itemprop="url">
             阅读全文
           </a>
         </div>
@@ -2781,8 +2769,8 @@ npm config set registry https://registry.npm...
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637157003251')
-      volantis.js('/js/message.js?time=1637157003251', () => {
+      volantis.css('/css/message.css?time=1637157003261')
+      volantis.js('/js/message.js?time=1637157003261', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2827,8 +2815,8 @@ npm config set registry https://registry.npm...
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637157003251')
-      volantis.js('/js/message.js?time=1637157003251', () => {
+      volantis.css('/css/message.css?time=1637157003261')
+      volantis.js('/js/message.js?time=1637157003261', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2887,8 +2875,8 @@ npm config set registry https://registry.npm...
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637157003251')
-      volantis.js('/js/message.js?time=1637157003251', () => {
+      volantis.css('/css/message.css?time=1637157003261')
+      volantis.js('/js/message.js?time=1637157003261', () => {
         hideMessage(done);
       });
     } else {
@@ -3120,7 +3108,7 @@ npm config set registry https://registry.npm...
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1637157003251')
+    volantis.js('/js/rightMenu.js?time=1637157003261')
   </script>
 
 
@@ -3134,19 +3122,19 @@ npm config set registry https://registry.npm...
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1637157003251")
+        volantis.js("/js/plugins/sites.js?time=1637157003261")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1637157003251")
+        volantis.js("/js/plugins/friends.js?time=1637157003261")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1637157003251")
+        volantis.js("/js/plugins/contributors.js?time=1637157003261")
       }
     
   };
@@ -3256,7 +3244,7 @@ npm config set registry https://registry.npm...
 
 
 
-<script src="/js/app.js?time=1637157003251.js"></script>
+<script src="/js/app.js?time=1637157003261.js"></script>
 
 
 <!-- optional -->
@@ -3269,7 +3257,7 @@ npm config set registry https://registry.npm...
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1637157003251");
+    return volantis.js("/js/search/hexo.js?time=1637157003261");
   }
 
   function loadSearchService() {
@@ -3516,7 +3504,7 @@ npm config set registry https://registry.npm...
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"HanJiangtao's Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://han-jiangtao.github.io/categories/经验/","name":"经验"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","description":""},"publisher":{"@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://han-jiangtao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"HanJiangtao's Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://han-jiangtao.github.io/tags/linux,oom/","name":"linux,oom"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","description":""},"publisher":{"@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://han-jiangtao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
 
 
 <!-- more -->

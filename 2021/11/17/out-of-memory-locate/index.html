@@ -4,8 +4,8 @@
   <meta name="generator" content="Hexo 5.4.0">
   <meta charset="utf-8">
   <!-- SEO相关 -->
-  <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://han-jiangtao.github.io/categories/flags/"/>
+  
+  <link rel="canonical" href="https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/"/>
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -20,20 +20,26 @@
   <meta content="HanJiangtao&#39;s Blog" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1636900673305" as="style">
+  <link rel="preload" href="/css/style.css?time=1637157003207" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
-  <title>分类：Flags - HanJiangtao's Blog</title>
-  <meta name="keywords" content="null">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="HanJiangtao&#39;s Blog">
-<meta property="og:url" content="https://han-jiangtao.github.io/categories/Flags/index.html">
+  <title>定位linux应用oom问题 - HanJiangtao's Blog</title>
+  <meta name="keywords" content="经验,linux,oom,null">
+  <meta name="description" content="我运行一个程序在服务器上，没有core文件产生，且程序异常退出，退出码为137（128+9）那么意味着我的程序，收到了一个kill -9信号，但是我十分确认的是，没有主动的去发送此信号google一下，大家遇到的exit code为137的问题多为oom（out of memory）我的环境是ubuntu x86_64内存1.5TB.ulimit -a查看max memory size为unlim">
+<meta property="og:type" content="article">
+<meta property="og:title" content="定位linux应用oom问题">
+<meta property="og:url" content="https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/index.html">
 <meta property="og:site_name" content="HanJiangtao&#39;s Blog">
+<meta property="og:description" content="我运行一个程序在服务器上，没有core文件产生，且程序异常退出，退出码为137（128+9）那么意味着我的程序，收到了一个kill -9信号，但是我十分确认的是，没有主动的去发送此信号google一下，大家遇到的exit code为137的问题多为oom（out of memory）我的环境是ubuntu x86_64内存1.5TB.ulimit -a查看max memory size为unlim">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
+<meta property="article:published_time" content="2021-11-17T21:28:58.000Z">
+<meta property="article:modified_time" content="2021-11-17T13:49:54.223Z">
 <meta property="article:author" content="HanJiangtao">
+<meta property="article:tag" content="经验">
+<meta property="article:tag" content="linux,oom">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
   <!-- feed -->
@@ -1654,8 +1660,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1636900673305" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1636900673305"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1637157003207" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1637157003207"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2344,7 +2350,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   
     
       <!-- see: /layout/_partial/scripts/_ctrl/coverCtrl.ejs -->
-      <div id="none" class='cover-wrapper  dock' style="display: none;">
+      <div id="none" class='cover-wrapper post dock' style="display: none;">
         
   <div class='cover-bg lazyload placeholder' data-bg="https://uploadbeta.com/api/pictures/random/?key=BingEverydayWallpaperPicture"></div>
 
@@ -2418,96 +2424,236 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
       <div id="safearea">
         <div class="body-wrapper">
           
-
 <div id="l_main" class=''>
-  
-    
-      
-  <section class="post-list">
-    
-      
-        
-          
-        
-      
-    
-    
-      
-        
-          <div class='post-wrapper'>
-            <div class="post post-v3 white-box reveal shadow"  itemscope itemtype="http://schema.org/Article" >
-  <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/10/20/site-learning-objectives/">
+  <article itemscope itemtype="http://schema.org/Article" class="article post white-box reveal md shadow article-type-post" id="post" itemscope itemprop="blogPost">
+  <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/">
   <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
     <meta itemprop="name" content="HanJiangtao's Blog">
   </span>
   
-  
+
+
   
     <span hidden>
       <meta itemprop="image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
     </span>
   
-  
+  <div class="article-meta" id="top">
     
-    <h2 class="article-title"  itemprop="name headline">
-      <a href="/2021/10/20/site-learning-objectives/"  itemprop="url">
-        建站初衷
-      </a>
-    </h2>
-  
-  <div class='md' itemprop="articleBody">
     
-      
-        本站搭建旨在记录和指导自己的学习过程和目标利用hexo搭建一个基本的blog —- done
-深入学习使用markdown语法 ---- doing
+    
+      <h1 class="title" itemprop="name headline">
+        定位linux应用oom问题
+      </h1>
+      <div class='new-meta-box'>
+        
+          
+            
+<div class='new-meta-item author' itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <a itemprop="url" class='author' href="/" rel="nofollow">
+    " class="lazyload" data-srcset="" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==<img itemprop="image" src="" alt="This is a picture without description" >
+    <p itemprop="name">HanJiangtao</p>
+  </a>
+</div>
 
-markdown引申HTML —- hold
-markdown引申graphviz —- hold
-nginx —- hold
+          
+        
+          
+            
 
+          
+        
+          
+            <div class="new-meta-item date" itemprop="dateCreated datePublished" datetime="2021-11-17T21:28:58+00:00">
+  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+    <i class="fas fa-calendar-alt fa-fw" aria-hidden="true"></i>
+    <p>发布于：2021年11月17日</p>
+  </a>
+</div>
 
-      
+          
+        
+          
+            
+
+          
+        
+        <!-- Custom Files topMeta begin-->
+        
+        <!-- Custom Files topMeta end-->
+      </div>
     
   </div>
+
+
+  <div id="layoutHelper-page-plugins"></div>
+  <div id="post-body" itemprop="articleBody">
+    <p>我运行一个程序在服务器上，没有core文件产生，且程序异常退出，退出码为137（128+9）<br>那么意味着我的程序，收到了一个kill -9信号，但是我十分确认的是，没有主动的去发送此信号<br>google一下，大家遇到的exit code为137的问题多为oom（out of memory）我的环境是ubuntu x86_64内存1.5TB.<br>ulimit -a查看max memory size为unlimited状态，且复现问题内存占用率较低，大概占了300GB左右    </p>
+<p>首先还是怀疑是不是oom问题，需要通过信号量来实锤<br>1.我尝试使用perf trace -e “kill”追踪signal，发现没有发送sigkill信号的行为<br>2.尝试通过dmesg查看系统日志也没有发现sigkill信号<br>3.现在我怀疑是不是我系统工具没有捕获到对应信号，自己又写了了简单的sleep脚本，手动发送kill -9信号，通过perf trace -e “kill”没有发现捕获到9信号<br>4.查看perf trace help文档，使用perf trace -a跟踪所有trace，而不是单独的event，看到有捕获到9信号<br>5.再次复现问题，perf trace -a依旧没有捕获到sig: kill信号<br>6.dmesg同没有捕获到kill信号    </p>
+<p><em><strong>未完</strong></em></p>
+
+
+  </div>
   
-    <div class='meta-v3' line_style='solid'>
-      <div>
-        
-        <time itemprop="dateCreated datePublished" datetime="2021-10-20T22:59:52+00:00">2021-10-20</time>
-        
-          <span class="dot"></span>
-          <a class="category-link" href="/categories/Flags/">Flags</a>
-          
-            <span hidden itemprop="about" itemscope itemtype="http://schema.org/Thing">
-              <a href="/categories/Flags/" itemprop="url"><span itemprop="name">Flags</span></a>
-            </span>
-          
-        
-      </div>
+  
+    
+    <div class='footer'>
       
-        <div>
-          <a class='readmore' href='/2021/10/20/site-learning-objectives/' itemprop="url">
-            阅读全文
-          </a>
+      
+      
+        <div class='copyright'>
+          <blockquote>
+            
+              
+                <p>博客内容遵循 署名-非商业性使用-相同方式共享 4.0 国际 (CC BY-NC-SA 4.0) 协议</p>
+
+              
+            
+              
+                <p>本文永久链接是：<a href=https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/>https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/</a></p>
+              
+            
+          </blockquote>
         </div>
+      
       
     </div>
   
+  
+    
 
+
+  <div class='article-meta' id="bottom">
+    <div class='new-meta-box'>
+      
+        
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2021-11-17T13:49:54+00:00">
+  <a class='notlink' href="/" onclick="return false;" title="Click me!" >
+    <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
+    <p>更新于：2021年11月17日</p>
+  </a>
 </div>
 
-          </div>
         
       
-    
-  </section>
+        
+          
   
+  <div class="new-meta-item meta-tags"><a class="tag" href="/tags/%E7%BB%8F%E9%AA%8C/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>经验</p></a></div> <div class="new-meta-item meta-tags"><a class="tag" href="/tags/linux-oom/" rel="nofollow"><i class="fas fa-hashtag fa-fw" aria-hidden="true"></i><p>linux,oom</p></a></div>
+  <span hidden itemprop="keywords">经验 linux,oom</span>
+
+
+        
+      
+        
+          
+  <div class="new-meta-item share -mob-share-list">
+  <div class="-mob-share-list share-body">
     
+      
+        <a class="-mob-share-qq" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/&title=定位linux应用oom问题 - HanJiangtao's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qq.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" >
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-qzone" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/&title=定位linux应用oom问题 - HanJiangtao's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/qzone.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" >
+          
+        </a>
+      
+    
+      
+        <a class="-mob-share-weibo" title="" rel="external nofollow noopener noreferrer noopener"
+          
+          target="_blank" href="http://service.weibo.com/share/share.php?url=https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/&title=定位linux应用oom问题 - HanJiangtao's Blog&summary="
+          
+          >
+          
+            <img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/weibo.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" >
+          
+        </a>
+      
+    
+      
+        
+        <div class='hoverbox'>
+          <a class='share' href="/" onclick="return false;" title="Click me!" ><img src="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" class="lazyload" data-srcset="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/logo/128/wechat.png" srcset="data:image/gif;base64,R0lGODlhAQABAIAAAP///////yH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="This is a picture without description" ></a>
+          <div class='target'>
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAATgAAAE4CAAAAADqFLC2AAADpElEQVR42u3aS24bQQwFQN3/0s4BgmDIR8KiouqdYE1/qrV4Juf1Y0TjhQAcOHDgDHDgjsC9wvHXhMW/P32/+vnpe9Xnu+cFBw4cOHDgwIG7BlcOgE246vyPG36Yp3zw4XnBgQMHDhw4cOCuwnUXrgbU9Pmn+doHn54XHDhw4MCBAwfuP4PrBtAUrLvftLAJDhw4cODAgQP3LXBbATgtmH79fw7gwIEDBw4cuK+Hm24kPeA25PlOPjhw4MCBAwcO3BJcd3QD5rXP8XnBgQMHDhw4cOCOwE3HFHoajLeCd3kf4MCBAwcOHDhwR+CmLwpOC57T57r7nJ4PHDhw4MCBAwfuKty0Eby90e2LGJ8bHDhw4MCBAwfuw+CqwXJ7w9XCaDvINhvX4MCBAwcOHDhw1+CmAXPaCN5uNHehuxcNDhw4cODAgQN3Fa7b0G0vPJw3LaymARocOHDgwIEDB+46XFro6wbPacF0+6LihjQ4cODAgQMHDtwxuGqAnDaqt14w3Cpoxg1pcODAgQMHDhy4N8GlDdutgme5gBheTHph4MCBAwcOHDhwnwKXBstpobO67lYQHxdkwYEDBw4cOHDgPhQubezGhcOlQJwWbP/ZkAYHDhw4cODAgTsCNw2e08BaPXDa8O7+UNoVYHDgwIEDBw4cuDfBdQ+y9VwXfCt4d/cBDhw4cODAgQN3Da5b2Js2orcOtt2QLkOCAwcOHDhw4MAdg9sKrL/d6J7O025kgwMHDhw4cODAfShceYFhME4vYFqILTekwYEDBw4cOHDgjsBNG77TDW03pKcBvRyAwYEDBw4cOHDgjsClYGkA7s6fNpS3Ajc4cODAgQMHDtwVuO4LetMA2l0nvbi44Vx9sRAcOHDgwIEDB+4IXFqo/Fke2y8Upo30x4Y0OHDgwIEDBw7cMbi08fsqjhQqLWxO5wUHDhw4cODAgfsUuO5C0wJhCl197hWOuJAJDhw4cODAgQP3S3Bbhcdt2Gkw335REhw4cODAgQMH7hrcVkDcCr7bF5N+LhcywYEDBw4cOHDg3gzXDbzdQuS0MLkVpNMCLThw4MCBAwcO3HW4NHBuH2zawJ5eCDhw4MCBAwcO3LfCTcG6hdNyQzkMyODAgQMHDhw4cN8GNy1Qdi9mCho3pMGBAwcOHDhw4N4M1w2QadDcPlC6bns+cODAgQMHDhy4Y3DTBu50o12Y6venFwMOHDhw4MCBA3cVzmhCIwAHDhw4Axy4944/uV/8U++dmekAAAAASUVORK5CYII=" alt="This is a picture without description" >
+          </div>
+        </div>
+      
+    
+      
+    
+  </div>
+</div>
+
+
+
+        
+      
+    </div>
+    <!-- Custom Files bottomMeta begin -->
+    
+    <!-- Custom Files bottomMeta end -->
+  </div>
+
+
+  
+  
+
+  
+    <div class="prev-next">
+      
+      
+        <a class='next' href='/2021/10/20/site-learning-objectives/'>
+          <p class='title'>建站初衷<i class="fas fa-chevron-right" aria-hidden="true"></i></p>
+          <p class='content'>本站搭建旨在记录和指导自己的学习过程和目标利用hexo搭建一个基本的blog —- done
+深入学习使用markdown语法 ---- doing
+
+markdown引申HTML —- hol...</p>
+        </a>
+      
+    </div>
+  
+  <!-- Custom Files postEnd begin-->
+  
+  <!-- Custom Files postEnd end-->
+</article>
+
+
+  
+
+  
+  <article class="post white-box reveal shadow" id="comments">
+    <span hidden>
+      <meta itemprop="discussionUrl" content="/2021/11/17/out-of-memory-locate/index.html#comments">
+    </span>
+    <p ct><i class='fas fa-comments'></i> 评论</p>
+    
+    
+    <div id="layoutHelper-comments"></div>
+
+  </article>
   
 
 
-    
-  
+
+
+
 </div>
 <aside id='l_side' itemscope itemtype="http://schema.org/WPSideBar">
   
@@ -2515,131 +2661,24 @@ nginx —- hold
     
     
 
-<section class="widget blogger shadow desktop mobile pjax">
-  <div class='content'>
-    
-      
-        <a class='avatar flat-box rectangle' href='/about/'>
-          <img no-lazy src='https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/Logo-NavBar@3x.png' alt="This is a picture without description" />
-        </a>
-      
-    
-    
-      <div class='text'>
-        
-        
-        
-          <p><span id="jinrishici-sentence">HanJiangtao's Blog</span></p>
-          <script src="https://sdk.jinrishici.com/v2/browser/jinrishici.js" charset="utf-8"></script>
-        
-      </div>
-    
-    
-      <div class="social-wrapper">
-        
-          
-            <a href="/atom.xml"
-              class="social fas fa-rss flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="mailto:hanjiangtao-pub@qq.com"
-              class="social fas fa-envelope flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="https://github.com/Han-Jiangtao"
-              class="social fab fa-github flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-          
-            <a href="/"
-              class="social fas fa-headphones-alt flat-btn"
-              target="_blank"
-              rel="external nofollow noopener noreferrer">
-              
-            </a>
-          
-        
-      </div>
-    
+
+
+  <div class="pjax">
+    <!-- pjax占位 -->
   </div>
-</section>
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget category shadow desktop pjax">
-    
-  <header>
-    
-      <a href='/blog/categories/'><i class="fas fa-folder-open fa-fw" aria-hidden="true"></i><span class='name'>文章分类</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <ul class="entry navigation">
-        
-          <li><a class="flat-box"
-            title="/categories/Flags/" href="/categories/Flags/"
-            active-action="action-categoriesFlags"
-            ><div class='name'>Flags</div><div class='badge'>(1)</div></a></li>
-        
-          <li><a class="flat-box"
-            title="/categories/%E7%BB%8F%E9%AA%8C/" href="/categories/%E7%BB%8F%E9%AA%8C/"
-            active-action="action-categoriesE7BB8FE9AA8C"
-            ><div class='name'>经验</div><div class='badge'>(2)</div></a></li>
-        
-      </ul>
-    </div>
-  </section>
-
-
-  
-
-  
-    
-    
-  
-
-  <section class="widget tagcloud shadow desktop mobile pjax">
-    
-  <header>
-    
-      <a href='/blog/tags/'><i class="fas fa-tags fa-fw" aria-hidden="true"></i><span class='name'>热门标签</span></a>
-    
-  </header>
-
-
-    <div class='content'>
-      <a href="/tags/Flags/" style="font-size: 14px; color: #999">Flags</a> <a href="/tags/%E7%BB%8F%E9%AA%8C/" style="font-size: 24px; color: #555">经验</a>
-    </div>
-  </section>
-
-
-  
 
   
 
 
 <!-- 没有 pjax 占位会报错 万恶的 pjax -->
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
+
+  <div class="pjax">
+    <!-- pjax占位 -->
+  </div>
 
   <div class="pjax">
     <!-- pjax占位 -->
@@ -2668,14 +2707,15 @@ nginx —- hold
 </aside>
 
 
+
           <!--此文件用来存放一些不方便取值的变量-->
 <!--思路大概是将值藏到重加载的区域内-->
 
 <pjax>
 <script>
   window.pdata={}
-  pdata.ispage=false;
-  pdata.postTitle="";
+  pdata.ispage=true;
+  pdata.postTitle="定位linux应用oom问题";
   pdata.commentPath="";
   pdata.commentPlaceholder="";
   pdata.commentConfig={};
@@ -2789,8 +2829,8 @@ nginx —- hold
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1636900673305')
-      volantis.js('/js/message.js?time=1636900673305', () => {
+      volantis.css('/css/message.css?time=1637157003207')
+      volantis.js('/js/message.js?time=1637157003207', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2835,8 +2875,8 @@ nginx —- hold
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1636900673305')
-      volantis.js('/js/message.js?time=1636900673305', () => {
+      volantis.css('/css/message.css?time=1637157003207')
+      volantis.js('/js/message.js?time=1637157003207', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2895,8 +2935,8 @@ nginx —- hold
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1636900673305')
-      volantis.js('/js/message.js?time=1636900673305', () => {
+      volantis.css('/css/message.css?time=1637157003207')
+      volantis.js('/js/message.js?time=1637157003207', () => {
         hideMessage(done);
       });
     } else {
@@ -3128,7 +3168,7 @@ nginx —- hold
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1636900673305')
+    volantis.js('/js/rightMenu.js?time=1637157003207')
   </script>
 
 
@@ -3142,19 +3182,19 @@ nginx —- hold
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1636900673305")
+        volantis.js("/js/plugins/sites.js?time=1637157003207")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1636900673305")
+        volantis.js("/js/plugins/friends.js?time=1637157003207")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1636900673305")
+        volantis.js("/js/plugins/contributors.js?time=1637157003207")
       }
     
   };
@@ -3264,7 +3304,7 @@ nginx —- hold
 
 
 
-<script src="/js/app.js?time=1636900673305.js"></script>
+<script src="/js/app.js?time=1637157003207.js"></script>
 
 
 <!-- optional -->
@@ -3277,7 +3317,7 @@ nginx —- hold
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1636900673305");
+    return volantis.js("/js/search/hexo.js?time=1637157003207");
   }
 
   function loadSearchService() {
@@ -3524,7 +3564,7 @@ nginx —- hold
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"HanJiangtao's Blog"}},{"@type":"ListItem","position":2,"item":{"@id":"https://han-jiangtao.github.io/categories/Flags/","name":"Flags"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","description":""},"publisher":{"@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://han-jiangtao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"HanJiangtao's Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/","name":"定位linux应用oom问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"定位linux应用oom问题","description":"","datePublished":"2021-11-17T21:28:58.000Z","dateModified":"2021-11-17T13:49:54.223Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/"},"author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/"},"publisher":{"@type":"Organization","name":"HanJiangtao's Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/","wordCount":0,"keywords":"经验,linux,oom","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
