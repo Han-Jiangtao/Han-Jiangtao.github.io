@@ -20,7 +20,7 @@
   <meta content="HanJiangtao&#39;s Blog" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1637157003207" as="style">
+  <link rel="preload" href="/css/style.css?time=1637247597374" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
@@ -36,7 +36,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2021-11-17T21:28:58.000Z">
-<meta property="article:modified_time" content="2021-11-17T13:49:54.223Z">
+<meta property="article:modified_time" content="2021-11-18T14:59:49.149Z">
 <meta property="article:author" content="HanJiangtao">
 <meta property="article:tag" content="经验">
 <meta property="article:tag" content="linux,oom">
@@ -1660,8 +1660,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1637157003207" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1637157003207"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1637247597374" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1637247597374"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2489,7 +2489,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="layoutHelper-page-plugins"></div>
   <div id="post-body" itemprop="articleBody">
     <p>我运行一个程序在服务器上，没有core文件产生，且程序异常退出，退出码为137（128+9）<br>那么意味着我的程序，收到了一个kill -9信号，但是我十分确认的是，没有主动的去发送此信号<br>google一下，大家遇到的exit code为137的问题多为oom（out of memory）我的环境是ubuntu x86_64内存1.5TB.<br>ulimit -a查看max memory size为unlimited状态，且复现问题内存占用率较低，大概占了300GB左右    </p>
-<p>首先还是怀疑是不是oom问题，需要通过信号量来实锤<br>1.我尝试使用perf trace -e “kill”追踪signal，发现没有发送sigkill信号的行为<br>2.尝试通过dmesg查看系统日志也没有发现sigkill信号<br>3.现在我怀疑是不是我系统工具没有捕获到对应信号，自己又写了了简单的sleep脚本，手动发送kill -9信号，通过perf trace -e “kill”没有发现捕获到9信号<br>4.查看perf trace help文档，使用perf trace -a跟踪所有trace，而不是单独的event，看到有捕获到9信号<br>5.再次复现问题，perf trace -a依旧没有捕获到sig: kill信号<br>6.dmesg同没有捕获到kill信号    </p>
+<p>1117记录跟进<br><br>首先还是怀疑是不是oom问题，需要通过信号量来实锤<br><br>1.我尝试使用perf trace -e “kill”追踪signal，发现没有发送sigkill信号的行为<br><br>2.尝试通过dmesg查看系统日志也没有发现sigkill信号<br><br>3.现在我怀疑是不是我系统工具没有捕获到对应信号，自己又写了了简单的sleep脚本，手动发送kill -9信号，通过perf trace -e “kill”没有发现捕获到9信号<br><br>4.查看perf trace help文档，使用perf trace -a跟踪所有trace，而不是单独的event，看到有捕获到9信号<br><br>5.再次复现问题，perf trace -a依旧没有捕获到sig: kill信号<br><br>6.dmesg同没有捕获到kill信号<br></p>
+<p>1118记录跟进<br><br>oom依旧是怀疑方向<br><br>大哥帮忙找了一个<a target="_blank" rel="noopener" href="https://github.com/brendangregg/perf-tools">大牛的脚本</a>，进程内通信的signal全部能采集到，包括python的os.kill发送的0，但是唯独收到kill信号的主进程的这个信号没有捕获迹象<br><br>重新试图使用/sys/kernel/debug/tracing配置捕捉deliver和gengerate的signal，第一次尝试也是唯独没有捕获到主进程消失的kill信号</p>
 <p><em><strong>未完</strong></em></p>
 
 
@@ -2527,10 +2528,10 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2021-11-17T13:49:54+00:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2021-11-18T14:59:49+00:00">
   <a class='notlink' href="/" onclick="return false;" title="Click me!" >
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
-    <p>更新于：2021年11月17日</p>
+    <p>更新于：2021年11月18日</p>
   </a>
 </div>
 
@@ -2829,8 +2830,8 @@ markdown引申HTML —- hol...</p>
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637157003207')
-      volantis.js('/js/message.js?time=1637157003207', () => {
+      volantis.css('/css/message.css?time=1637247597374')
+      volantis.js('/js/message.js?time=1637247597374', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2875,8 +2876,8 @@ markdown引申HTML —- hol...</p>
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637157003207')
-      volantis.js('/js/message.js?time=1637157003207', () => {
+      volantis.css('/css/message.css?time=1637247597374')
+      volantis.js('/js/message.js?time=1637247597374', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2935,8 +2936,8 @@ markdown引申HTML —- hol...</p>
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637157003207')
-      volantis.js('/js/message.js?time=1637157003207', () => {
+      volantis.css('/css/message.css?time=1637247597374')
+      volantis.js('/js/message.js?time=1637247597374', () => {
         hideMessage(done);
       });
     } else {
@@ -3168,7 +3169,7 @@ markdown引申HTML —- hol...</p>
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1637157003207')
+    volantis.js('/js/rightMenu.js?time=1637247597374')
   </script>
 
 
@@ -3182,19 +3183,19 @@ markdown引申HTML —- hol...</p>
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1637157003207")
+        volantis.js("/js/plugins/sites.js?time=1637247597374")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1637157003207")
+        volantis.js("/js/plugins/friends.js?time=1637247597374")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1637157003207")
+        volantis.js("/js/plugins/contributors.js?time=1637247597374")
       }
     
   };
@@ -3304,7 +3305,7 @@ markdown引申HTML —- hol...</p>
 
 
 
-<script src="/js/app.js?time=1637157003207.js"></script>
+<script src="/js/app.js?time=1637247597374.js"></script>
 
 
 <!-- optional -->
@@ -3317,7 +3318,7 @@ markdown引申HTML —- hol...</p>
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1637157003207");
+    return volantis.js("/js/search/hexo.js?time=1637247597374");
   }
 
   function loadSearchService() {
@@ -3564,7 +3565,7 @@ markdown引申HTML —- hol...</p>
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"HanJiangtao's Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/","name":"定位linux应用oom问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"定位linux应用oom问题","description":"","datePublished":"2021-11-17T21:28:58.000Z","dateModified":"2021-11-17T13:49:54.223Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/"},"author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/"},"publisher":{"@type":"Organization","name":"HanJiangtao's Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/","wordCount":0,"keywords":"经验,linux,oom","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"HanJiangtao's Blog","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"HanJiangtao's Blog"}},{"@type":"ListItem","position":3,"item":{"@id":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/","name":"定位linux应用oom问题"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"定位linux应用oom问题","description":"","datePublished":"2021-11-17T21:28:58.000Z","dateModified":"2021-11-18T14:59:49.149Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/"},"author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/"},"publisher":{"@type":"Organization","name":"HanJiangtao's Blog","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/","wordCount":0,"keywords":"经验,linux,oom","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
