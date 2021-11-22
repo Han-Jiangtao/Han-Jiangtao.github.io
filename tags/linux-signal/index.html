@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <!-- SEO相关 -->
   <meta name="robots" content="noindex,follow">
-  <link rel="canonical" href="https://han-jiangtao.github.io/tags/linux-oom/"/>
+  <link rel="canonical" href="https://han-jiangtao.github.io/tags/linux-signal/"/>
   <!-- 渲染优化 -->
   <meta http-equiv='x-dns-prefetch-control' content='on' />
   <link rel='dns-prefetch' href='https://cdn.jsdelivr.net'>
@@ -20,16 +20,16 @@
   <meta content="Han壮壮" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1637382648643" as="style">
+  <link rel="preload" href="/css/style.css?time=1637591509779" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
-  <title>标签：linux,oom - Han壮壮</title>
+  <title>标签：linux,signal - Han壮壮</title>
   <meta name="keywords" content="null">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Han壮壮">
-<meta property="og:url" content="https://han-jiangtao.github.io/tags/linux-oom/index.html">
+<meta property="og:url" content="https://han-jiangtao.github.io/tags/linux-signal/index.html">
 <meta property="og:site_name" content="Han壮壮">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
@@ -1654,8 +1654,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1637382648643" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1637382648643"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1637591509779" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1637591509779"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2451,7 +2451,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
     <h2 class="article-title"  itemprop="name headline">
       <a href="/2021/11/17/out-of-memory-locate/"  itemprop="url">
-        定位linux应用oom问题
+        定位linux应用收到sig=9问题
       </a>
     </h2>
   
@@ -2609,7 +2609,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
     <div class='content'>
-      <a href="/tags/Flags/" style="font-size: 14px; color: #999">Flags</a> <a href="/tags/linux-oom/" style="font-size: 14px; color: #999">linux,oom</a> <a href="/tags/%E7%BB%8F%E9%AA%8C/" style="font-size: 24px; color: #555">经验</a>
+      <a href="/tags/Flags/" style="font-size: 14px; color: #999">Flags</a> <a href="/tags/linux-signal/" style="font-size: 14px; color: #999">linux,signal</a> <a href="/tags/%E7%BB%8F%E9%AA%8C/" style="font-size: 24px; color: #555">经验</a>
     </div>
   </section>
 
@@ -2769,8 +2769,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637382648643')
-      volantis.js('/js/message.js?time=1637382648643', () => {
+      volantis.css('/css/message.css?time=1637591509779')
+      volantis.js('/js/message.js?time=1637591509779', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2815,8 +2815,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637382648643')
-      volantis.js('/js/message.js?time=1637382648643', () => {
+      volantis.css('/css/message.css?time=1637591509779')
+      volantis.js('/js/message.js?time=1637591509779', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2875,8 +2875,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1637382648643')
-      volantis.js('/js/message.js?time=1637382648643', () => {
+      volantis.css('/css/message.css?time=1637591509779')
+      volantis.js('/js/message.js?time=1637591509779', () => {
         hideMessage(done);
       });
     } else {
@@ -3108,7 +3108,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1637382648643')
+    volantis.js('/js/rightMenu.js?time=1637591509779')
   </script>
 
 
@@ -3122,19 +3122,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1637382648643")
+        volantis.js("/js/plugins/sites.js?time=1637591509779")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1637382648643")
+        volantis.js("/js/plugins/friends.js?time=1637591509779")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1637382648643")
+        volantis.js("/js/plugins/contributors.js?time=1637591509779")
       }
     
   };
@@ -3244,7 +3244,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<script src="/js/app.js?time=1637382648643.js"></script>
+<script src="/js/app.js?time=1637591509779.js"></script>
 
 
 <!-- optional -->
@@ -3257,7 +3257,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1637382648643");
+    return volantis.js("/js/search/hexo.js?time=1637591509779");
   }
 
   function loadSearchService() {
@@ -3504,7 +3504,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Han壮壮","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"Han壮壮"}},{"@type":"ListItem","position":2,"item":{"@id":"https://han-jiangtao.github.io/tags/linux,oom/","name":"linux,oom"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Han壮壮","url":"https://han-jiangtao.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","description":""},"publisher":{"@type":"Organization","name":"Han壮壮","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://han-jiangtao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Han壮壮","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"Han壮壮"}},{"@type":"ListItem","position":2,"item":{"@id":"https://han-jiangtao.github.io/tags/linux,signal/","name":"linux,signal"}}]},{"@context":"http://schema.org","@type":"WebSite","name":"Han壮壮","url":"https://han-jiangtao.github.io/","keywords":null,"description":"","author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","description":""},"publisher":{"@type":"Organization","name":"Han壮壮","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"potentialAction":{"@type":"SearchAction","name":"Site Search","target":{"@type":"EntryPoint","urlTemplate":"https://han-jiangtao.github.io?s={search_term_string}"},"query-input":"required name=search_term_string"}}]</script>
 
 
 <!-- more -->
