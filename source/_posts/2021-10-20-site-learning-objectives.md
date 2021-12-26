@@ -15,3 +15,7 @@ markdown引申HTML ---- hold
 markdown引申graphviz ---- hold
 
 nginx ---- hold
+
+perf ---- hold
+
+bpftrace ---- hold
