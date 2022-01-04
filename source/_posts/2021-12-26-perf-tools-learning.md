@@ -12,7 +12,7 @@ tags:
 
 perf --help可以查看perf支持的比较常用的参数列表及其功能
 |参数列表|功能|
-|:---:|:---:|
+| --- | --- |
 |annotate|Read perf.data (created by perf record) and display annotated code|
 |archive|Create archive with object files with build-ids found in perf.data file|
 |bench|General framework for benchmark suites|
@@ -55,7 +55,7 @@ e.g.
 perf record -g -a #监控全部CPU,使能调用关系图
 perf record -g ./myapp myapp_arg1 myapp_arg2 #监控myapp，使能调用关系图
 ```
-
+## perf report
 
 
 ```未完```
