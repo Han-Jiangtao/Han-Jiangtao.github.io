@@ -97,3 +97,5 @@ jobs:
 # 附加内容
 ## 1. 在.github/workflows/pages.yml中添加的with代码块:
 我们在git仓库的source分支维护了hexo的源内容，包括本教程的后半部更换blog的theme，theme是在themes/文件夹下维护的，且通过本教程通过git submodule来维护其链接，那么在git pages的action行为中，单拉git仓的source分支，是缺失了themes文件夹下内容的下载的，那么添加的with代码块的作用就是：git action的时候将source分支和themes submodule都下载，后续的action才能执行，详细的action行为可以在git仓库的actions页签查看。
+## 2.hexo使能markdown表格不显示问题（直接显示源内容而不是表格）
+RE:与正文空两行即可
