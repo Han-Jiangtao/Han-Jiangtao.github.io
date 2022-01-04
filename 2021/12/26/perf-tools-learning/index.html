@@ -20,23 +20,23 @@
   <meta content="Han壮壮" name="apple-mobile-web-app-title">
   <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style">
   <meta content="telephone=no" name="format-detection">
-  <link rel="preload" href="/css/style.css?time=1641280853310" as="style">
+  <link rel="preload" href="/css/style.css?time=1641280951364" as="style">
   <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/VarelaRound/VarelaRound-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 <link rel="preload" href="https://cdn.jsdelivr.net/gh/volantis-x/cdn-fonts/UbuntuMono/UbuntuMono-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
   <!-- 页面元数据 -->
   <title>学习使用linux perf工具 - Han壮壮</title>
   <meta name="keywords" content="经验,null">
-  <meta name="description" content="本章记录学习使用perf工具的过程,以centos x86环境测试 安装perf：sudo yum install perf perf简单介绍perf –help可以查看perf支持的比较常用的参数列表及其功能| 参数列表 | 功能 || — | — || annotate | Read perf.data (created by perf record) and display annotate">
+  <meta name="description" content="本章记录学习使用perf工具的过程,以centos x86环境测试 安装perf：sudo yum install perf perf简单介绍perf –help可以查看perf支持的比较常用的参数列表及其功能|参数列表|功能||:-:|:-:||annotate|Read perf.data (created by perf record) and display annotated code|">
 <meta property="og:type" content="article">
 <meta property="og:title" content="学习使用linux perf工具">
 <meta property="og:url" content="https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/index.html">
 <meta property="og:site_name" content="Han壮壮">
-<meta property="og:description" content="本章记录学习使用perf工具的过程,以centos x86环境测试 安装perf：sudo yum install perf perf简单介绍perf –help可以查看perf支持的比较常用的参数列表及其功能| 参数列表 | 功能 || — | — || annotate | Read perf.data (created by perf record) and display annotate">
+<meta property="og:description" content="本章记录学习使用perf工具的过程,以centos x86环境测试 安装perf：sudo yum install perf perf简单介绍perf –help可以查看perf支持的比较常用的参数列表及其功能|参数列表|功能||:-:|:-:||annotate|Read perf.data (created by perf record) and display annotated code|">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png">
 <meta property="article:published_time" content="2021-12-26T22:01:28.000Z">
-<meta property="article:modified_time" content="2022-01-04T07:20:41.897Z">
+<meta property="article:modified_time" content="2022-01-04T07:22:23.833Z">
 <meta property="article:author" content="HanJiangtao">
 <meta property="article:tag" content="经验">
 <meta name="twitter:card" content="summary">
@@ -1659,8 +1659,8 @@ ul.list-v >li>a:hover {
 }
 
   </style>
-  <link rel="stylesheet" href="/css/style.css?time=1641280853310" media="print" onload="this.media='all';this.onload=null">
-  <noscript><link rel="stylesheet" href="/css/style.css?time=1641280853310"></noscript>
+  <link rel="stylesheet" href="/css/style.css?time=1641280951364" media="print" onload="this.media='all';this.onload=null">
+  <noscript><link rel="stylesheet" href="/css/style.css?time=1641280951364"></noscript>
   
 <script>
 if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMode))
@@ -2489,7 +2489,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <div id="post-body" itemprop="articleBody">
     <p>本章记录学习使用perf工具的过程,以centos x86环境测试</p>
 <p>安装perf：sudo yum install perf</p>
-<h1 id="perf简单介绍"><a href="#perf简单介绍" class="headerlink" title="perf简单介绍"></a>perf简单介绍</h1><p>perf –help可以查看perf支持的比较常用的参数列表及其功能<br>| 参数列表 | 功能 |<br>| — | — |<br>| annotate | Read perf.data (created by perf record) and display annotated code |<br>|archive|Create archive with object files with build-ids found in perf.data file|<br>|bench|General framework for benchmark suites|<br>|buildid-cache|Manage build-id cache.|<br>|buildid-list|List the buildids in a perf.data file|<br>|c2c|Shared Data C2C/HITM Analyzer.|<br>|config|Get and set variables in a configuration file.|<br>|data|Data file related processing|<br>|diff|Read perf.data files and display the differential profile|<br>|evlist|List the event names in a perf.data file|<br>|ftrace|simple wrapper for kernel’s ftrace functionality|<br>|inject|Filter to augment the events stream with additional information|<br>|kallsyms|Searches running kernel for symbols|<br>|kmem|Tool to trace/measure kernel memory properties|<br>|kvm|Tool to trace/measure kvm guest os|<br>|list|List all symbolic event types|<br>|lock|Analyze lock events|<br>|mem|Profile memory accesses|<br>|record|Run a command and record its profile into perf.data|<br>|report|Read perf.data (created by perf record) and display the profile|<br>|sched|Tool to trace/measure scheduler properties (latencies)|<br>|script|Read perf.data (created by perf record) and display trace output|<br>|stat|Run a command and gather performance counter statistics|<br>|test|Runs sanity tests.|<br>|timechart|Tool to visualize total system behavior during a workload|<br>|top|System profiling tool.|<br>|version|display the version of perf binary|<br>|probe|Define new dynamic tracepoints|<br>|trace|strace inspired tool|</p>
+<h1 id="perf简单介绍"><a href="#perf简单介绍" class="headerlink" title="perf简单介绍"></a>perf简单介绍</h1><p>perf –help可以查看perf支持的比较常用的参数列表及其功能<br>|参数列表|功能|<br>|:-:|:-:|<br>|annotate|Read perf.data (created by perf record) and display annotated code|<br>|archive|Create archive with object files with build-ids found in perf.data file|<br>|bench|General framework for benchmark suites|<br>|buildid-cache|Manage build-id cache.|<br>|buildid-list|List the buildids in a perf.data file|<br>|c2c|Shared Data C2C/HITM Analyzer.|<br>|config|Get and set variables in a configuration file.|<br>|data|Data file related processing|<br>|diff|Read perf.data files and display the differential profile|<br>|evlist|List the event names in a perf.data file|<br>|ftrace|simple wrapper for kernel’s ftrace functionality|<br>|inject|Filter to augment the events stream with additional information|<br>|kallsyms|Searches running kernel for symbols|<br>|kmem|Tool to trace/measure kernel memory properties|<br>|kvm|Tool to trace/measure kvm guest os|<br>|list|List all symbolic event types|<br>|lock|Analyze lock events|<br>|mem|Profile memory accesses|<br>|record|Run a command and record its profile into perf.data|<br>|report|Read perf.data (created by perf record) and display the profile|<br>|sched|Tool to trace/measure scheduler properties (latencies)|<br>|script|Read perf.data (created by perf record) and display trace output|<br>|stat|Run a command and gather performance counter statistics|<br>|test|Runs sanity tests.|<br>|timechart|Tool to visualize total system behavior during a workload|<br>|top|System profiling tool.|<br>|version|display the version of perf binary|<br>|probe|Define new dynamic tracepoints|<br>|trace|strace inspired tool|</p>
 <h2 id="perf-record"><a href="#perf-record" class="headerlink" title="perf record"></a>perf record</h2><div class="story post-story"><p>采集要分析的原始数据</br><br>根据man perf-record查看其基本使用方法</br><br>可以分为三个大区域</br><br>默认前缀：perf record</br><br>record option（可选）: -g etc.</br><br>command（为指定要采集的程序，如果使能本部分，则部分全局采集record option不可用）</br><br>e.g.</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">perf record -g -a <span class="comment">#监控全部CPU,使能调用关系图</span></span><br><span class="line">perf record -g ./myapp myapp_arg1 myapp_arg2 <span class="comment">#监控myapp，使能调用关系图</span></span><br></pre></td></tr></table></figure>
 </div><h2 id="perf-report"><a href="#perf-report" class="headerlink" title="perf report"></a>perf report</h2><div class="story post-story"><p><code>未完</code></p>
@@ -2525,7 +2525,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     <div class='new-meta-box'>
       
         
-          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-01-04T07:20:41+00:00">
+          <div class="new-meta-item date" itemprop="dateModified" datetime="2022-01-04T07:22:23+00:00">
   <a class='notlink' href="/" onclick="return false;" title="Click me!" >
     <i class="fas fa-edit fa-fw" aria-hidden="true"></i>
     <p>更新于：2022年1月4日</p>
@@ -2834,8 +2834,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
   <script>
   volantis.message = (title, message, option = {}, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1641280853310')
-      volantis.js('/js/message.js?time=1641280853310', () => {
+      volantis.css('/css/message.css?time=1641280951364')
+      volantis.js('/js/message.js?time=1641280951364', () => {
         tozashMessage(title, message, option, done);
       });
     } else {
@@ -2880,8 +2880,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   volantis.question = (title, message, option = {}, success = null, cancel = null, done = null) => {
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1641280853310')
-      volantis.js('/js/message.js?time=1641280853310', () => {
+      volantis.css('/css/message.css?time=1641280951364')
+      volantis.js('/js/message.js?time=1641280951364', () => {
         tozashQuestion(title, message, option, success, cancel, done);
       });
     } else {
@@ -2940,8 +2940,8 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     }
     
     if (typeof iziToast === "undefined") {
-      volantis.css('/css/message.css?time=1641280853310')
-      volantis.js('/js/message.js?time=1641280853310', () => {
+      volantis.css('/css/message.css?time=1641280951364')
+      volantis.js('/js/message.js?time=1641280951364', () => {
         hideMessage(done);
       });
     } else {
@@ -3173,7 +3173,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       volantis.APlayerController = {};
     
-    volantis.js('/js/rightMenu.js?time=1641280853310')
+    volantis.js('/js/rightMenu.js?time=1641280951364')
   </script>
 
 
@@ -3187,19 +3187,19 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
     
       const sites_api = document.getElementById('sites-api');
       if (sites_api != undefined && typeof SitesJS === 'undefined') {
-        volantis.js("/js/plugins/sites.js?time=1641280853310")
+        volantis.js("/js/plugins/sites.js?time=1641280951364")
       }
     
     
       const friends_api = document.getElementById('friends-api');
       if (friends_api != undefined && typeof FriendsJS === 'undefined') {
-        volantis.js("/js/plugins/friends.js?time=1641280853310")
+        volantis.js("/js/plugins/friends.js?time=1641280951364")
       }
     
     
       const contributors_api = document.getElementById('contributors-api');
       if (contributors_api != undefined && typeof ContributorsJS === 'undefined') {
-        volantis.js("/js/plugins/contributors.js?time=1641280853310")
+        volantis.js("/js/plugins/contributors.js?time=1641280951364")
       }
     
   };
@@ -3309,7 +3309,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-<script src="/js/app.js?time=1641280853310.js"></script>
+<script src="/js/app.js?time=1641280951364.js"></script>
 
 
 <!-- optional -->
@@ -3322,7 +3322,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
   function loadSearchScript() {
     // see: layout/_partial/scripts/_ctrl/cdnCtrl.ejs
-    return volantis.js("/js/search/hexo.js?time=1641280853310");
+    return volantis.js("/js/search/hexo.js?time=1641280951364");
   }
 
   function loadSearchService() {
@@ -3569,7 +3569,7 @@ if (/*@cc_on!@*/false || (!!window.MSInputMethodContext && !!document.documentMo
 
 
 
-  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Han壮壮","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"Han壮壮"}},{"@type":"ListItem","position":3,"item":{"@id":"https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/","name":"学习使用linux perf工具"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"学习使用linux perf工具","description":"","datePublished":"2021-12-26T22:01:28.000Z","dateModified":"2022-01-04T07:20:41.897Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/"},"author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/"},"publisher":{"@type":"Organization","name":"Han壮壮","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/","wordCount":0,"keywords":"经验","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
+  <script type="application/ld+json">[{"@context":"http://schema.org","@type":"Organization","name":"Han壮壮","url":"https://han-jiangtao.github.io/","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},{"@context":"http://schema.org","@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/","sameAs":["https://github.com/volantis-x"],"description":""},{"@context":"http://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"item":{"@id":"https://han-jiangtao.github.io/","name":"Han壮壮"}},{"@type":"ListItem","position":3,"item":{"@id":"https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/","name":"学习使用linux perf工具"}}]},{"@context":"http://schema.org","@type":"BlogPosting","headline":"学习使用linux perf工具","description":"","datePublished":"2021-12-26T22:01:28.000Z","dateModified":"2022-01-04T07:22:23.833Z","inLanguage":"zh-CN","mainEntityOfPage":{"@type":"WebPage","@id":"https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/"},"author":{"@type":"Person","name":"HanJiangtao","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png"},"url":"https://han-jiangtao.github.io/"},"publisher":{"@type":"Organization","name":"Han壮壮","logo":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}},"url":"https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/","wordCount":0,"keywords":"经验","image":{"@type":"ImageObject","url":"https://cdn.jsdelivr.net/gh/volantis-x/cdn-org/blog/favicon/android-chrome-192x192.png","width":192,"height":192}}]</script>
 
 
 <!-- more -->
