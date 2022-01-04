@@ -11,9 +11,9 @@ tags:
 # perf简单介绍
 
 perf --help可以查看perf支持的比较常用的参数列表及其功能
-|参数列表|功能|
+| 参数列表 | 功能 |
 | --- | --- |
-|annotate|Read perf.data (created by perf record) and display annotated code|
+| annotate | Read perf.data (created by perf record) and display annotated code |
 |archive|Create archive with object files with build-ids found in perf.data file|
 |bench|General framework for benchmark suites|
 |buildid-cache|Manage build-id cache.|
