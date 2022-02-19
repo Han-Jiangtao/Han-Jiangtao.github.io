@@ -19,3 +19,5 @@ nginx ---- hold
 perf ---- hold
 
 bpftrace ---- hold
+
+how init vimrc ---- hold
