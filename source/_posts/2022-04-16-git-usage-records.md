@@ -28,6 +28,8 @@ git config --global https.proxy https://127.0.0.1:1080
 
 # 关闭https的ssl验证
 git config http.sslVerify "false"
+# 或者可以使用如下方式单次不进行ssl验证并clone仓库
+env GIT_SSL_NO_VERIFY=true git clone https://......git
 
 # 取消代理
 git config --global --unset http.proxy
