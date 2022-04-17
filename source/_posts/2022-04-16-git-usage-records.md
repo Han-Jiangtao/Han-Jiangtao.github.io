@@ -6,22 +6,23 @@ tags:
 categories: 经验
 ---
 ## 使用git过程中的部分记录
+# git config
+git config --system
+配置整个系统，全部用户操作生效
+配置内容写入/etc/gitconfig
+
+git config --global
+配置当前用户，当前用户全局操作生效
+配置内容写入~/.gitconfig
+
+git config --local
+配置当前git仓库，在当前git仓库生效
+配置内容写入.git/config
+
+git config搜索顺序为.git/config->~/.git/config->/etc/gitconfig
+![git config search](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/git_config_search.png)
 # 代理
 ```bash
-# git config --system
-# 配置整个系统，全部用户操作生效
-# 配置内容写入/etc/gitconfig
-
-# git config --global
-# 配置当前用户，当前用户全局操作生效
-# 配置内容写入~/.gitconfig
-
-# git config --local
-# 配置当前git仓库，在当前git仓库生效
-# 配置内容写入.git/config
-
-# git config搜索顺序为.git/config->~/.git/config->/etc/gitconfig
-
 # 配置代理,ip和port根据自己的目标服务器配置
 git config --global https.proxy http://127.0.0.1:1080
 git config --global https.proxy https://127.0.0.1:1080
