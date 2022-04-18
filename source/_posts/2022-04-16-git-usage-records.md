@@ -5,7 +5,7 @@ tags:
  - [经验]
 categories: 经验
 ---
-## 使用git过程中的部分记录
+使用git过程中的部分记录
 # git config
 git config --system
 配置整个系统，全部用户操作生效
@@ -20,7 +20,7 @@ git config --local
 配置内容写入.git/config
 
 git config搜索顺序为.git/config->~/.git/config->/etc/gitconfig
-![git config search](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/git_config_search.png)
+![git config search](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/git_config_search.jpg)
 # 代理
 ```bash
 # 配置代理,ip和port根据自己的目标服务器配置
