@@ -1,5 +1,5 @@
 ---
-title: openwrt_trojan
+title: 树莓派刷机openwrt配置trojan
 date: 2022-04-26 20:22:04
 tags:
  - [环境搭建]
