@@ -31,9 +31,24 @@ openwrt已经有trojan插件且有github每日编译，配置也不复杂，完�
 手机浏览器登录192.168.1.1，用户名密码默认为root/password。
 登录进后，选择网络分类接口：
 点击lan修改：配置成如下(注意配置项的ipv4相关网段均为主路由的网段)
-
-保存并应用后，将主路由和树莓派网线连接，可以在主路由器上发现，ipv4为我们配置的设备。</br>
+![](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_network_interface.jpeg)</br>
+明显上图中192.168.50.1为我们主路由ip，则本例中旁路由ipv4地址为192.168.50.2，并且在旁路由上关闭了DHCP服务</br>
+保存并应用后，将主路由和树莓派网线连接，可以在主路由器上发现，对应的ipv4地址分配给了我们配置的设备。</br>
 重启树莓派</br>
 
-在PC上打开我们设置的树莓派的ipv4地址
+在PC上打开我们设置的树莓派的ipv4地址192.168.50.2(root/password)</br>
+进入服务->ssr->服务器节点，将自己的trojan订阅链接填入，如下图:
+![](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_ssr_server_url.jpeg)
+订阅成功后界面会有下图信息:
+![](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_success_add_ssr_server.jpeg)
+点击保存后，可以进入下图界面进行连通性确认:
+![](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_trojan_connect_success.jpeg)
+上图即为链接可访问，到此旁路由的设置完成。
+
+# 4.手机wifi默认代理
+我手边手机一般连接主卧的二级中继路由，手头是iphone(Android同理)</br>
+将手机连接至wifi后，将ipv4手动配置，由于iphone都在一起，所以ip、dns、gateway统一配置</br>
+ip配置为本身原来的即可(链接好wifi后，详细界面可以看到)</br>
+dns配置为旁路由ip，gateway配置为旁路由ip。
+全部配置完成后，如下两图:
 
