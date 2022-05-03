@@ -6,11 +6,13 @@ tags:
 categories: 折腾
 ---
 # 树莓派搭建家庭科学上网旁路由
+以下任何行为均需要在合法合规的前提下进行。</br>
+知法懂法！！！！本教程以阿里云代理为前提，无任何违法行为和倾向。</br>
 家里有多台设备有科学上网诉求，但是配置只允许2个设备接入。来回切换体验很差劲，手头有个树莓派也省的额外购买。</br>
 梅林之前已经搞过一次，兴趣不大，另外现在论坛暂未支持trojan插件，所以放弃。</br>
 openwrt已经有trojan插件且有github每日编译，配置也不复杂，完成了图形化配置所以选型用openwrt。</br>
 
-当前家里路由及设备连接如图所示:
+当前家里路由及设备连接如图所示:</br>
 ![](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/family_route_demo.png)
 
 # 1.镜像准备
@@ -51,4 +53,9 @@ openwrt已经有trojan插件且有github每日编译，配置也不复杂，完�
 ip配置为本身原来的即可(链接好wifi后，详细界面可以看到)</br>
 dns配置为旁路由ip，gateway配置为旁路由ip。
 全部配置完成后，如下两图:
+![](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_ipv4.jpg)
+![](https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_dns.jpg)
+以上，即为手机端配置走旁路由代理的方法。
 
+# 5.PC端配置默认走旁路由代理
+同手机端，ip设为dhcp本身给的ip，dns和gateway走旁路由即可
