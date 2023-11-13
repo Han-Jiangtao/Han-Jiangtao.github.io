@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-    <!-- title -->
-
-
-    
-
-<!-- keywords -->
-
-
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <meta name="author" content="HanJiangtao">
-    <meta name="renderer" content="webkit">
-    <meta name="copyright" content="HanJiangtao">
-    
-        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
-    
-    <meta name="description" content="">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"han-jiangtao.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
+
     <meta property="og:type" content="website">
 <meta property="og:title" content="Han壮壮">
 <meta property="og:url" content="https://han-jiangtao.github.io/index.html">
@@ -26,1173 +26,1042 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="article:author" content="HanJiangtao">
 <meta name="twitter:card" content="summary">
-    <meta http-equiv="Cache-control" content="no-cache">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <link rel="icon" href="/assets/favicon.ico">
-    
-    <title>Han壮壮</title>
-    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
-/* This file is meant as a standalone workflow for
-- testing support for link[rel=preload]
-- enabling async CSS loading in browsers that do not support rel=preload
-- applying rel preload css once loaded, whether supported or not.
-*/ -->
-<script>
-    (function (w) {
-        'use strict'
-        // rel=preload support test
-        if (!w.loadCSS) {
-            w.loadCSS = function () {}
-        }
-        // define on the loadCSS obj
-        var rp = (loadCSS.relpreload = {})
-        // rel=preload feature support test
-        // runs once and returns a function for compat purposes
-        rp.support = (function () {
-            var ret
-            try {
-                ret = w.document.createElement('link').relList.supports('preload')
-            } catch (e) {
-                ret = false
-            }
-            return function () {
-                return ret
-            }
-        })()
 
-        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
-        // then change that media back to its intended value on load
-        rp.bindMediaToggle = function (link) {
-            // remember existing media attr for ultimate state, or default to 'all'
-            var finalMedia = link.media || 'all'
 
-            function enableStylesheet() {
-                link.media = finalMedia
-            }
+<link rel="canonical" href="https://han-jiangtao.github.io/">
 
-            // bind load handlers to enable media
-            if (link.addEventListener) {
-                link.addEventListener('load', enableStylesheet)
-            } else if (link.attachEvent) {
-                link.attachEvent('onload', enableStylesheet)
-            }
 
-            // Set rel and non-applicable media type to start an async request
-            // note: timeout allows this to happen async to let rendering continue in IE
-            setTimeout(function () {
-                link.rel = 'stylesheet'
-                link.media = 'only x'
-            })
-            // also enable media after 3 seconds,
-            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
-            setTimeout(enableStylesheet, 3000)
-        }
 
-        // loop through link elements in DOM
-        rp.poly = function () {
-            // double check this to prevent external calls from running
-            if (rp.support()) {
-                return
-            }
-            var links = w.document.getElementsByTagName('link')
-            for (var i = 0; i < links.length; i++) {
-                var link = links[i]
-                // qualify links to those with rel=preload and as=style attrs
-                if (
-                    link.rel === 'preload' &&
-                    link.getAttribute('as') === 'style' &&
-                    !link.getAttribute('data-loadcss')
-                ) {
-                    // prevent rerunning on link
-                    link.setAttribute('data-loadcss', true)
-                    // bind listeners to toggle media back
-                    rp.bindMediaToggle(link)
-                }
-            }
-        }
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":true,"isPost":false,"lang":"zh-CN","comments":"","permalink":"","path":"index.html","title":""}</script>
 
-        // if unsupported, run the polyfill
-        if (!rp.support()) {
-            // run once at least
-            rp.poly()
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Han壮壮</title>
+  
 
-            // rerun poly on an interval until onload
-            var run = w.setInterval(rp.poly, 500)
-            if (w.addEventListener) {
-                w.addEventListener('load', function () {
-                    rp.poly()
-                    w.clearInterval(run)
-                })
-            } else if (w.attachEvent) {
-                w.attachEvent('onload', function () {
-                    rp.poly()
-                    w.clearInterval(run)
-                })
-            }
-        }
 
-        // commonjs
-        if (typeof exports !== 'undefined') {
-            exports.loadCSS = loadCSS
-        } else {
-            w.loadCSS = loadCSS
-        }
-    })(typeof global !== 'undefined' ? global : this)
-</script>
 
-    <style type="text/css">
-    @font-face {
-        font-family: 'Oswald-Regular';
-        src: url("/font/Oswald-Regular.ttf");
-    }
 
-    body {
-        margin: 0;
-    }
 
-    header,
-    footer,
-    .back-top,
-    .sidebar,
-    .container,
-    .site-intro-meta,
-    .toc-wrapper {
-        display: none;
-    }
 
-    .site-intro {
-        position: relative;
-        z-index: 3;
-        width: 100%;
-        /* height: 50vh; */
-        overflow: hidden;
-    }
 
-    .site-intro-placeholder {
-        position: absolute;
-        z-index: -2;
-        top: 0;
-        left: 0;
-        width: calc(100% + 300px);
-        height: 100%;
-        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
-        background-position: center center;
-        transform: translate3d(-226px, 0, 0);
-        animation: gradient-move 2.5s ease-out 0s infinite;
-    }
 
-    @keyframes gradient-move {
-        0% {
-            transform: translate3d(-226px, 0, 0);
-        }
-        100% {
-            transform: translate3d(0, 0, 0);
-        }
-    }
-</style>
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
 
-    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
-    <link rel="stylesheet" href="/css/dark.css">
-    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
-    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
-    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
-    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
-    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
-    <!-- algolia -->
-    
-    <!-- 百度统计  -->
-    
-    <!-- 谷歌统计  -->
-    
-<meta name="generator" content="Hexo 6.2.0"></head>
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
 
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
-    <script type="text/javascript">
-        if (typeof window.$ == undefined) {
-            console.warn('jquery load from jsdelivr failed, will load local script')
-            document.write('<script src="/lib/jquery.min.js" />')
-        }
-    </script>
-    
-        <body class="home-body">
-    
-        <!-- header -->
-        <header class="header header-mobile index-header">
-    <!-- top read progress line -->
-    <div class="header-element">
-        <div class="read-progress"></div>
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
     </div>
-    <!-- sidebar menu button -->
-    <div class="header-element">
-        
-            <div class="header-sidebar-menu">
-        
-            
-                <div style="padding-left: 1px;">&#xe775;</div>
-            
-        </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Han壮壮</h1>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">test hard</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
     </div>
-    <!-- header actions -->
-    <div class="header-actions">
-        <!-- theme mode switch button -->
-        <span class="header-theme-btn header-element">
-            <i class="fas fa-adjust"></i>
-        </span>
-        <!-- back to home page text -->
-        <span class="home-link header-element">
-            <a href=/>Han壮壮的博客</a>
-        </span>
-    </div>
-    <!-- toggle banner for post layout -->
-    
+  </div>
+</div>
+
+
+
+
+
+
+
 </header>
+        
+  
+  <aside class="sidebar">
 
-        <!-- fixed footer -->
-        <footer class="footer-fixed index-footer-fixed">
-    <!-- back to top button -->
-    <div class="footer-fixed-element">
-        
-            <div class="back-top back-top-hidden">
-        
-        
-            <div>&#xe639;</div>
-        
+    <div class="sidebar-inner sidebar-overview-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
         </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">HanJiangtao</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
     </div>
-</footer>
 
-        <!-- wrapper -->
-        <div class="wrapper">
-            <div class="site-intro" style="
-
-
-
-
-
-
-
-    height:50vh;
-
-">
     
-    <!-- 主页  -->
-    
-        
-    <!-- 文章页  -->
-            
-    <div class="site-intro-placeholder"></div>
-    <div class="site-intro-img" style="background-image: url(/intro/index-bg.jpg)"></div>
-    <div class="site-intro-meta">
-        <!-- 标题  -->
-        <h1 class="intro-title">
-            <!-- 主页  -->
-            
-                Han壮壮的博客
-            <!-- 文章页  -->
-            
-        </h1>
-        <!-- 副标题 -->
-        <p class="intro-subtitle">
-            <!-- 主页副标题  -->
-            
-                
-                    不愤不启，不悱不发。</br>一隅不以三隅反，则不复也。
-                
-            <!-- 文章页  -->
-            
-        </p>
-        <!-- 文章页 meta -->
-        
+  </aside>
+
+
     </div>
-</div>
 
-            <script>
-  // get user agent
-  function getBrowserVersions() {
-    var u = window.navigator.userAgent
-    return {
-      userAgent: u,
-      trident: u.indexOf('Trident') > -1, //IE内核
-      presto: u.indexOf('Presto') > -1, //opera内核
-      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
-      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
-      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
-      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
-      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
-      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
-      iPad: u.indexOf('iPad') > -1, //是否为iPad
-      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
-      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
-      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
-    }
-  }
-  var browser = {
-    versions: getBrowserVersions(),
-  }
-  console.log('userAgent: ' + browser.versions.userAgent)
+    <div class="main-inner index posts-expand">
 
-  // callback
-  function fontLoaded() {
-    console.log('font loaded')
-    if (document.getElementsByClassName('site-intro-meta')) {
-      document
-        .getElementsByClassName('intro-title')[0]
-        .classList.add('intro-fade-in')
-      document
-        .getElementsByClassName('intro-subtitle')[0]
-        .classList.add('intro-fade-in')
-      var postIntros = document.getElementsByClassName('post-intros')[0]
-      if (postIntros) {
-        postIntros.classList.add('post-fade-in')
-      }
-    }
-  }
-
-  // UC不支持跨域，所以直接显示
-  function asyncCb() {
-    if (browser.versions.uc) {
-      console.log('UCBrowser')
-      fontLoaded()
-    } else {
-      WebFont.load({
-        custom: {
-          families: ['Oswald-Regular'],
-        },
-        loading: function () {
-          // 所有字体开始加载
-          // console.log('font loading');
-        },
-        active: function () {
-          // 所有字体已渲染
-          fontLoaded()
-        },
-        inactive: function () {
-          // 字体预加载失败，无效字体或浏览器不支持加载
-          console.log('inactive: timeout')
-          fontLoaded()
-        },
-        timeout: 5000, // Set the timeout to two seconds
-      })
-    }
-  }
-
-  function asyncErr() {
-    console.warn('script load from CDN failed, will load local script')
-  }
-
-  // load webfont-loader async, and add callback function
-  function async(u, cb, err) {
-    var d = document,
-      t = 'script',
-      o = d.createElement(t),
-      s = d.getElementsByTagName(t)[0]
-    o.src = u
-    if (cb) {
-      o.addEventListener(
-        'load',
-        function (e) {
-          cb(null, e)
-        },
-        false
-      )
-    }
-    if (err) {
-      o.addEventListener(
-        'error',
-        function (e) {
-          err(null, e)
-        },
-        false
-      )
-    }
-    s.parentNode.insertBefore(o, s)
-  }
-
-  var asyncLoadWithFallBack = function (arr, success, reject) {
-    var currReject = function () {
-      reject()
-      arr.shift()
-      if (arr.length) async(arr[0], success, currReject)
-    }
-
-    async(arr[0], success, currReject)
-  }
-
-  asyncLoadWithFallBack(
-    [
-      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
-      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
-      "/lib/webfontloader.min.js",
-    ],
-    asyncCb,
-    asyncErr
-  )
-</script>
-
-            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
-            <div class="container container-unloaded">
-                <main class="main index-page">
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/05/03/apple-tv/">
-                
-                <span class="abstract-title-text">美版ATV收看国内爱优腾和直播</span>
-            </a>
-            <div class="abstract-content">
-                
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/05/03</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="环境搭建">环境搭建</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/04/26/openwrt-trojan/">
-                
-                <span class="abstract-title-text">树莓派刷机openwrt配置trojan</span>
-            </a>
-            <div class="abstract-content">
-                树莓派搭建家庭科学上网旁路由以下任何行为均需要在合法合规的前提下进行。知法懂法！！！！本教程以阿里云代理为前提，无任何违法行为和倾向。家里有多台设备有科学上网诉求，但是配置只允许2个设备接入。来回切换体验很差劲，手头有个树莓派也省的额外购买。梅林之前已经搞过一次，兴趣不大，另外现在论坛暂未支持trojan插件，所以放弃。openwrt已经有trojan插件且有github每日编译，配置也不复杂，完成了图形化配置所以选型用openwrt。
-当前家里路由及设备连接如图所示:
-1.镜像准备感谢@SuLingGG 每日构建openwrt镜像.仓库地址:https://github.com/Sul...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/26</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="环境搭建">环境搭建</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2022/04/16/git-usage-records/">
-                
-                <span class="abstract-title-text">git使用记录</span>
-            </a>
-            <div class="abstract-content">
-                使用git过程中的部分记录
-git configgit config –system配置整个系统，全部用户操作生效配置内容写入&#x2F;etc&#x2F;gitconfig
-git config –global配置当前用户，当前用户全局操作生效配置内容写入~&#x2F;.gitconfig
-git config –local配置当前git仓库，在当前git仓库生效配置内容写入.git&#x2F;config
-git config搜索顺序为.git&#x2F;config-&gt;~&#x2F;.git&#x2F;config-&gt;&#x2F;etc&#x2F;gitconfig
-代...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2022/04/16</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="经验">经验</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2021/12/26/perf-tools-learning/">
-                
-                <span class="abstract-title-text">学习使用linux perf工具</span>
-            </a>
-            <div class="abstract-content">
-                本章记录学习使用perf工具的过程,以centos x86环境测试
-安装perf：sudo yum install perf
-perf简单介绍perf –help可以查看perf支持的比较常用的参数列表及其功能
-
-
-
-参数列表
-功能
-
-
-
-annotate
-Read perf.data (created by perf record) and display annotated code
-
-
-archive
-Create archive with object files with build-ids found in perf.data file
-
-
-bench
-General fra...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/12/26</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="经验">经验</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2021/11/17/out-of-memory-locate/">
-                
-                <span class="abstract-title-text">定位linux应用收到sig=9问题</span>
-            </a>
-            <div class="abstract-content">
-                我运行一个程序在服务器上，没有core文件产生，且程序异常退出，退出码为137（128+9）那么意味着我的程序，收到了一个kill -9信号，但是我十分确认的是，没有主动的去发送此信号google一下，大家遇到的exit code为137的问题多为oom（out of memory）我的环境是ubuntu x86_64内存1.5TB.ulimit -a查看max memory size为unlimited状态，且复现问题内存占用率较低，大概占了300GB左右    
-1117记录跟进首先还是怀疑是不是oom问题，需要通过信号量来实锤1.我尝试使用perf trace -e “kill”追...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/11/17</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="经验">经验</a>
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="linux,signal">linux,signal</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2021/10/20/site-learning-objectives/">
-                
-                <span class="abstract-title-text">建站初衷</span>
-            </a>
-            <div class="abstract-content">
-                本站搭建旨在记录和指导自己的学习过程和目标利用hexo搭建一个基本的blog —- done
-深入学习使用markdown语法 ---- doing
-
-markdown引申HTML —- hold
-markdown引申graphviz —- hold
-nginx —- hold
-perf —- hold
-bpftrace —- hold
-how init vimrc —- hold
-
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/20</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="Flags">Flags</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2021/10/20/md-learning/">
-                
-                <span class="abstract-title-text">基于GFM学习markdown</span>
-            </a>
-            <div class="abstract-content">
-                GitHub Flavored Markdown Spec
-
-一、 文档分块
-以0-3个空格开头且后跟多于三个-,_,*字符的形式分割主题块
-建议以---,___,***为一行分割主题
-
-
-markdown同HTML分为六级主题，以1-6个#字符，分别表示1-6级主题
-# 一级主题## 二级主题### 三级主题#### 四级主题##### 五级主题###### 六级主题
-
-
-
-
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/20</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="经验">经验</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-        
-        
-        
-        
-            
-        
-        <article class="index-post">
-            <a class="abstract-title" href="/2021/10/16/how-to-init-blog-by-hexo/">
-                
-                <span class="abstract-title-text">使用hexo和github搭建自己的blog</span>
-            </a>
-            <div class="abstract-content">
-                开始记录如何通过hexo和github搭建自己的blog网上蛮多教程在如何发布blog和管理blog本身内容语焉不详，我写这个教程主要是将整个端到端流程记录下来，包括如何将自己买的域名解析至github pages
-1. 安装hexo（centos）
-
-yum install npm 安装npm包管理器
-npm config set registry https://registry.npm.taobao.org 配置npm源3.npm install -g hexo 安装hexo
-
-
-2. 创建github个人pages仓库
-
-登陆github创建仓库，仓库名要为username.gi...
-            </div>
-            <!-- read more -->
-            
-            <div class="abstract-post-meta">
-                <!-- date -->
-                <div class="abstract-date" title="Last updated: 2022/05/16">
-                    <span class="abstract-calander iconfont-archer">&#xe676;</span><span class="abstract-time">2021/10/16</span>
-                </div>
-                <!-- tags -->
-                
-                    <div class= abstract-tags >
-    
-    
-        <a class="post-tag" href="javascript:void(0);" data-tags="经验">经验</a>
-    
-</div>
-
-                
-            </div>
-        </article>
-        <div class="index-post-divider"></div>
-    
-    <!-- paginator  -->
-    
-</main>
-
-                <!-- profile -->
-                
-                    <div class="profile">
-    <img class="profile-avatar" alt="avatar" src= /avatar/me.jpg />
-    <div class="profile-name">Han壮壮</div>
-    
-        <div class="profile-signature">
-            witness me
-        </div>
-    
-    
-        <div class="profile-social">
-            
-    
-        
-            
-                <a href="mailto:hanjinagtao-pub@qq.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="https://github.com/Han-Jiangtao" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
     
 
 
-        </div>
-    
-    
-    
-        <div class="profile-link-item">
-            <a href="/about" class="about-me">
-                
-                ABOUT ME
-            </a>
-        </div>
-    
-    
-    
-</div>
+<div class="post-block">
+  
+  
 
-                
-            </div>
-            <footer class="footer footer-unloaded">
-    <!-- social  -->
-    
-        <div class="social">
-            
-    
-        
-            
-                <a href="mailto:hanjinagtao-pub@qq.com" class="iconfont-archer email" title=email ></a>
-            
-        
-    
-        
-            
-                <a href="https://github.com/Han-Jiangtao" class="iconfont-archer github" target="_blank" title=github></a>
-            
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
-        
-    
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2022/05/03/apple-tv/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
 
-        </div>
-    
-    <!-- powered by Hexo  -->
-    <div class="copyright">
-        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
-    </div>
-    <!-- website approve for Chinese user -->
-    
-    <!-- 不蒜子  -->
-    
-        <div class="busuanzi-container">
-            
-             
-                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
-            
-        </div>
-    	
-</footer>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
 
-        </div>
-        <!-- toc -->
-        
-        <!-- sidebar -->
-        <div class="sidebar sidebar-hide">
-    <ul class="sidebar-tabs sidebar-tabs-active-0">
-        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
-        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
-        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
-    </ul>
-    <div class="sidebar-content sidebar-content-show-archive">
-        <div class="sidebar-panel-archives">
-    <!-- 在 ejs 中将 archive 按照时间排序 -->
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    
-    
-    
-    
-    <div class="total-and-search">
-        <div class="total-archive">
-        Total : 8
-        </div>
-        <!-- search  -->
-        
-    </div>
-    
-    <div class="post-archive">
-    
-        
-            
-            
-            <div class="archive-year"> 2022 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">05/03</span>
-            <a class="archive-post-title" href="/2022/05/03/apple-tv/">美版ATV收看国内爱优腾和直播</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/26</span>
-            <a class="archive-post-title" href="/2022/04/26/openwrt-trojan/">树莓派刷机openwrt配置trojan</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">04/16</span>
-            <a class="archive-post-title" href="/2022/04/16/git-usage-records/">git使用记录</a>
-        </li>
-    
-        
-            
-            
-                
-                </ul>
-            
-            <div class="archive-year"> 2021 </div>
-            <ul class="year-list">
-            
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">12/26</span>
-            <a class="archive-post-title" href="/2021/12/26/perf-tools-learning/">学习使用linux perf工具</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">11/17</span>
-            <a class="archive-post-title" href="/2021/11/17/out-of-memory-locate/">定位linux应用收到sig=9问题</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/20</span>
-            <a class="archive-post-title" href="/2021/10/20/md-learning/">基于GFM学习markdown</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/20</span>
-            <a class="archive-post-title" href="/2021/10/20/site-learning-objectives/">建站初衷</a>
-        </li>
-    
-        
-        <li class="archive-post-item">
-            <span class="archive-post-date">10/16</span>
-            <a class="archive-post-title" href="/2021/10/16/how-to-init-blog-by-hexo/">使用hexo和github搭建自己的blog</a>
-        </li>
-    
-    </div>
-</div>
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/05/03/apple-tv/" class="post-title-link" itemprop="url">美版ATV收看国内爱优腾和直播</a>
+        </h2>
 
-        <div class="sidebar-panel-tags">
-    <div class="sidebar-tags-name">
-        
-            <span class="sidebar-tag-name" data-tags="经验">
-                <span class="iconfont-archer">&#xe606;</span>
-                经验
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="Flags">
-                <span class="iconfont-archer">&#xe606;</span>
-                Flags
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="linux,signal">
-                <span class="iconfont-archer">&#xe606;</span>
-                linux,signal
-            </span>
-        
-            <span class="sidebar-tag-name" data-tags="环境搭建">
-                <span class="iconfont-archer">&#xe606;</span>
-                环境搭建
-            </span>
-        
-    </div>
-    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
-    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
-        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
-    </div> 
-    <div class="sidebar-tags-list"></div>
-</div>
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
 
-        <div class="sidebar-panel-categories">
-    <div class="sidebar-categories-name">
-    
-        <span class="sidebar-category-name" data-categories="经验">
-            <span class="iconfont-archer">&#xe60a;</span>
-            经验
+      <time title="创建时间：2022-05-03 22:09:38" itemprop="dateCreated datePublished" datetime="2022-05-03T22:09:38+00:00">2022-05-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
         </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
     
-        <span class="sidebar-category-name" data-categories="折腾">
-            <span class="iconfont-archer">&#xe60a;</span>
-            折腾
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2022/04/26/openwrt-trojan/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/26/openwrt-trojan/" class="post-title-link" itemprop="url">树莓派刷机openwrt配置trojan</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-26 20:22:04" itemprop="dateCreated datePublished" datetime="2022-04-26T20:22:04+00:00">2022-04-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
         </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
     
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h1 id="树莓派搭建家庭科学上网旁路由"><a href="#树莓派搭建家庭科学上网旁路由" class="headerlink" title="树莓派搭建家庭科学上网旁路由"></a>树莓派搭建家庭科学上网旁路由</h1><p>以下任何行为均需要在合法合规的前提下进行。</br><br>知法懂法！！！！本教程以阿里云代理为前提，无任何违法行为和倾向。</br><br>家里有多台设备有科学上网诉求，但是配置只允许2个设备接入。来回切换体验很差劲，手头有个树莓派也省的额外购买。</br><br>梅林之前已经搞过一次，兴趣不大，另外现在论坛暂未支持trojan插件，所以放弃。</br><br>openwrt已经有trojan插件且有github每日编译，配置也不复杂，完成了图形化配置所以选型用openwrt。</br></p>
+<p>当前家里路由及设备连接如图所示:</br><br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/family_route_demo.png"></p>
+<h1 id="1-镜像准备"><a href="#1-镜像准备" class="headerlink" title="1.镜像准备"></a>1.镜像准备</h1><p>感谢@SuLingGG 每日构建openwrt镜像.</br><br>仓库地址:<a target="_blank" rel="noopener" href="https://github.com/SulingGG/Openwrt-rpi">https://github.com/SulingGG/Openwrt-rpi</a></br><br>下载地址:<a target="_blank" rel="noopener" href="https://doc.openwrt.cc/2-OpenWrt-Rpi/1-Download/">https://doc.openwrt.cc/2-OpenWrt-Rpi/1-Download/</a></br><br>当前已支持设备可以在下载地址查看，树莓派系列都有支持下载，我这边使用了3B的squashfs-sysupgrade.img.gz镜像</br></p>
+<h1 id="2-烧录镜像"><a href="#2-烧录镜像" class="headerlink" title="2.烧录镜像"></a>2.烧录镜像</h1><p>准备一张4G以上的SD卡，使用SD Card Formatter擦除SD卡。</br><br>使用balenaEther，烧写镜像<img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/balenaEther_flash.png"><br>烧录完成后插入树莓派的SD卡槽，网线暂时不要连接到路由器上。</br></p>
+<h1 id="3-OpenWrt配置"><a href="#3-OpenWrt配置" class="headerlink" title="3.OpenWrt配置"></a>3.OpenWrt配置</h1><p>网上教程一般推荐用网线将树莓派和PC相连，然后登录OpenWrt的配置界面进行配置，当然下述方式不成功的话，树莓派与PC直连效果一样。</br><br>当下我们选择另外的方式，SD卡烧录完成并放进树莓派后启动树莓派，手机即可搜到OpenWrt名字的wifi。<br>大概过3-5min让树莓派完成配置，wifi连接到对应网络上。手机查看当前wifi信息可以看到网段为192.168.1.xx，网关为192.168.1.1</br><br>手机浏览器登录192.168.1.1，用户名密码默认为root&#x2F;password。<br>登录进后，选择网络分类接口：<br>点击lan修改：配置成如下(注意配置项的ipv4相关网段均为主路由的网段)<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_network_interface.jpeg"></br><br>明显上图中192.168.50.1为我们主路由ip，则本例中旁路由ipv4地址为192.168.50.2，并且在旁路由上关闭了DHCP服务</br><br>保存并应用后，将主路由和树莓派网线连接，可以在主路由器上发现，对应的ipv4地址分配给了我们配置的设备。</br><br>重启树莓派</br></p>
+<p>在PC上打开我们设置的树莓派的ipv4地址192.168.50.2(root&#x2F;password)</br><br>进入服务-&gt;ssr-&gt;服务器节点，将自己的trojan订阅链接填入，如下图:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_ssr_server_url.jpeg"><br>订阅成功后界面会有下图信息:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_success_add_ssr_server.jpeg"><br>点击保存后，可以进入下图界面进行连通性确认:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_trojan_connect_success.jpeg"><br>上图即为链接可访问，到此旁路由的设置完成。</p>
+<h1 id="4-手机wifi默认代理"><a href="#4-手机wifi默认代理" class="headerlink" title="4.手机wifi默认代理"></a>4.手机wifi默认代理</h1><p>我手边手机一般连接主卧的二级中继路由，手头是iphone(Android同理)</br><br>将手机连接至wifi后，将ipv4手动配置，由于iphone都在一起，所以ip、dns、gateway统一配置</br><br>ip配置为本身原来的即可(链接好wifi后，详细界面可以看到)</br><br>dns配置为旁路由ip，gateway配置为旁路由ip。<br>全部配置完成后，如下两图:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_ipv4.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_dns.jpg"><br>以上，即为手机端配置走旁路由代理的方法。</p>
+<h1 id="5-PC端配置默认走旁路由代理"><a href="#5-PC端配置默认走旁路由代理" class="headerlink" title="5.PC端配置默认走旁路由代理"></a>5.PC端配置默认走旁路由代理</h1><p>同手机端，ip设为dhcp本身给的ip，dns和gateway走旁路由即可</p>
+
+      
     </div>
-    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
-    <div class="sidebar-categories-list"></div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
 </div>
 
-    </div>
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2022/04/16/git-usage-records/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2022/04/16/git-usage-records/" class="post-title-link" itemprop="url">git使用记录</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2022-04-16 12:41:24" itemprop="dateCreated datePublished" datetime="2022-04-16T12:41:24+00:00">2022-04-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BB%8F%E9%AA%8C/" itemprop="url" rel="index"><span itemprop="name">经验</span></a>
+        </span>
+    </span>
+
+  
 </div>
 
-        <!-- site-meta -->
-        <script>
-    var siteMetaRoot = "/"
-    if (siteMetaRoot === "undefined") {
-        siteMetaRoot = '/'
-    }
-    var siteMeta = {
-        url: "https://han-jiangtao.github.io",
-        root: siteMetaRoot,
-        author: "HanJiangtao"
-    }
-</script>
+        </div>
+      </header>
 
-        <!-- import experimental options here -->
-        <!-- Custom Font -->
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>使用git过程中的部分记录</p>
+<h1 id="git-config"><a href="#git-config" class="headerlink" title="git config"></a>git config</h1><p>git config –system<br>配置整个系统，全部用户操作生效<br>配置内容写入&#x2F;etc&#x2F;gitconfig</p>
+<p>git config –global<br>配置当前用户，当前用户全局操作生效<br>配置内容写入~&#x2F;.gitconfig</p>
+<p>git config –local<br>配置当前git仓库，在当前git仓库生效<br>配置内容写入.git&#x2F;config</p>
+<p>git config搜索顺序为.git&#x2F;config-&gt;~&#x2F;.git&#x2F;config-&gt;&#x2F;etc&#x2F;gitconfig<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/git_config_search.jpg" alt="git config search"></p>
+<h1 id="代理"><a href="#代理" class="headerlink" title="代理"></a>代理</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置代理,ip和port根据自己的目标服务器配置</span></span><br><span class="line">git config --global https.proxy http://127.0.0.1:1080</span><br><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭https的ssl验证</span></span><br><span class="line">git config http.sslVerify <span class="string">&quot;false&quot;</span></span><br><span class="line"><span class="comment"># 或者可以使用如下方式单次不进行ssl验证并clone仓库</span></span><br><span class="line"><span class="built_in">env</span> GIT_SSL_NO_VERIFY=<span class="literal">true</span> git <span class="built_in">clone</span> https://......git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 取消代理</span></span><br><span class="line">git config --global --<span class="built_in">unset</span> http.proxy</span><br><span class="line">git config --global --<span class="built_in">unset</span> https.proxy</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="submodule"><a href="#submodule" class="headerlink" title="submodule"></a>submodule</h1><h2 id="在一个git仓库里新引入submodule"><a href="#在一个git仓库里新引入submodule" class="headerlink" title="在一个git仓库里新引入submodule"></a>在一个git仓库里新引入submodule</h2><h2 id="拉取已有submodule的远程仓库并完成本地子模块拉取"><a href="#拉取已有submodule的远程仓库并完成本地子模块拉取" class="headerlink" title="拉取已有submodule的远程仓库并完成本地子模块拉取"></a>拉取已有submodule的远程仓库并完成本地子模块拉取</h2>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
 
 
-        <!-- main func -->
-        <script src="/scripts/main.js?v=20211217"></script>
-        <!-- dark mode -->
-        <script src="/scripts/dark.js?v=20211217"></script>
-        <!-- fancybox -->
-        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
-        <!-- algolia -->
-        
-        <!-- busuanzi -->
-        
-            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
-        
-        <!-- CNZZ -->
-        
-        <!-- async load share.js -->
-        
-        <!-- mermaid -->
-        
-    </body>
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/12/26/perf-tools-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/12/26/perf-tools-learning/" class="post-title-link" itemprop="url">学习使用linux perf工具</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-12-26 22:01:28" itemprop="dateCreated datePublished" datetime="2021-12-26T22:01:28+00:00">2021-12-26</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>本章记录学习使用perf工具的过程,以centos x86环境测试</p>
+<p>安装perf：sudo yum install perf</p>
+<h1 id="perf简单介绍"><a href="#perf简单介绍" class="headerlink" title="perf简单介绍"></a>perf简单介绍</h1><p>perf –help可以查看perf支持的比较常用的参数列表及其功能</p>
+<table>
+<thead>
+<tr>
+<th align="left">参数列表</th>
+<th align="left">功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">annotate</td>
+<td align="left">Read perf.data (created by perf record) and display annotated code</td>
+</tr>
+<tr>
+<td align="left">archive</td>
+<td align="left">Create archive with object files with build-ids found in perf.data file</td>
+</tr>
+<tr>
+<td align="left">bench</td>
+<td align="left">General framework for benchmark suites</td>
+</tr>
+<tr>
+<td align="left">buildid-cache</td>
+<td align="left">Manage build-id cache.</td>
+</tr>
+<tr>
+<td align="left">buildid-list</td>
+<td align="left">List the buildids in a perf.data file</td>
+</tr>
+<tr>
+<td align="left">c2c</td>
+<td align="left">Shared Data C2C&#x2F;HITM Analyzer.</td>
+</tr>
+<tr>
+<td align="left">config</td>
+<td align="left">Get and set variables in a configuration file.</td>
+</tr>
+<tr>
+<td align="left">data</td>
+<td align="left">Data file related processing</td>
+</tr>
+<tr>
+<td align="left">diff</td>
+<td align="left">Read perf.data files and display the differential profile</td>
+</tr>
+<tr>
+<td align="left">evlist</td>
+<td align="left">List the event names in a perf.data file</td>
+</tr>
+<tr>
+<td align="left">ftrace</td>
+<td align="left">simple wrapper for kernel’s ftrace functionality</td>
+</tr>
+<tr>
+<td align="left">inject</td>
+<td align="left">Filter to augment the events stream with additional information</td>
+</tr>
+<tr>
+<td align="left">kallsyms</td>
+<td align="left">Searches running kernel for symbols</td>
+</tr>
+<tr>
+<td align="left">kmem</td>
+<td align="left">Tool to trace&#x2F;measure kernel memory properties</td>
+</tr>
+<tr>
+<td align="left">kvm</td>
+<td align="left">Tool to trace&#x2F;measure kvm guest os</td>
+</tr>
+<tr>
+<td align="left">list</td>
+<td align="left">List all symbolic event types</td>
+</tr>
+<tr>
+<td align="left">lock</td>
+<td align="left">Analyze lock events</td>
+</tr>
+<tr>
+<td align="left">mem</td>
+<td align="left">Profile memory accesses</td>
+</tr>
+<tr>
+<td align="left">record</td>
+<td align="left">Run a command and record its profile into perf.data</td>
+</tr>
+<tr>
+<td align="left">report</td>
+<td align="left">Read perf.data (created by perf record) and display the profile</td>
+</tr>
+<tr>
+<td align="left">sched</td>
+<td align="left">Tool to trace&#x2F;measure scheduler properties (latencies)</td>
+</tr>
+<tr>
+<td align="left">script</td>
+<td align="left">Read perf.data (created by perf record) and display trace output</td>
+</tr>
+<tr>
+<td align="left">stat</td>
+<td align="left">Run a command and gather performance counter statistics</td>
+</tr>
+<tr>
+<td align="left">test</td>
+<td align="left">Runs sanity tests.</td>
+</tr>
+<tr>
+<td align="left">timechart</td>
+<td align="left">Tool to visualize total system behavior during a workload</td>
+</tr>
+<tr>
+<td align="left">top</td>
+<td align="left">System profiling tool.</td>
+</tr>
+<tr>
+<td align="left">version</td>
+<td align="left">display the version of perf binary</td>
+</tr>
+<tr>
+<td align="left">probe</td>
+<td align="left">Define new dynamic tracepoints</td>
+</tr>
+<tr>
+<td align="left">trace</td>
+<td align="left">strace inspired tool</td>
+</tr>
+</tbody></table>
+<h2 id="perf-record"><a href="#perf-record" class="headerlink" title="perf record"></a>perf record</h2><p>采集要分析的原始数据</br><br>根据man perf-record查看其基本使用方法</br><br>可以分为三个大区域</br><br>默认前缀：perf record</br><br>record option（可选）: -g etc.</br><br>command（为指定要采集的程序，如果使能本部分，则部分全局采集record option不可用）</br><br>e.g.</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">perf record -g -a <span class="comment">#监控全部CPU,使能调用关系图</span></span><br><span class="line">perf record -g ./myapp myapp_arg1 myapp_arg2 <span class="comment">#监控myapp，使能调用关系图</span></span><br></pre></td></tr></table></figure>
+<h2 id="perf-report"><a href="#perf-report" class="headerlink" title="perf report"></a>perf report</h2><p><code>未完</code></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/11/17/out-of-memory-locate/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/11/17/out-of-memory-locate/" class="post-title-link" itemprop="url">定位linux应用收到sig=9问题</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-11-17 21:28:58" itemprop="dateCreated datePublished" datetime="2021-11-17T21:28:58+00:00">2021-11-17</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>我运行一个程序在服务器上，没有core文件产生，且程序异常退出，退出码为137（128+9）<br>那么意味着我的程序，收到了一个kill -9信号，但是我十分确认的是，没有主动的去发送此信号<br>google一下，大家遇到的exit code为137的问题多为oom（out of memory）我的环境是ubuntu x86_64内存1.5TB.<br>ulimit -a查看max memory size为unlimited状态，且复现问题内存占用率较低，大概占了300GB左右    </p>
+<p>1117记录跟进<br><br>首先还是怀疑是不是oom问题，需要通过信号量来实锤<br><br>1.我尝试使用perf trace -e “kill”追踪signal，发现没有发送sigkill信号的行为<br><br>2.尝试通过dmesg查看系统日志也没有发现sigkill信号<br><br>3.现在我怀疑是不是我系统工具没有捕获到对应信号，自己又写了了简单的sleep脚本，手动发送kill -9信号，通过perf trace -e “kill”没有发现捕获到9信号<br><br>4.查看perf trace help文档，使用perf trace -a跟踪所有trace，而不是单独的event，看到有捕获到9信号<br><br>5.再次复现问题，perf trace -a依旧没有捕获到sig: kill信号<br><br>6.dmesg同没有捕获到kill信号<br></p>
+<p>1118记录跟进<br><br>oom依旧是怀疑方向<br><br>大哥帮忙找了一个<a target="_blank" rel="noopener" href="https://github.com/brendangregg/perf-tools">大牛的脚本</a>，进程内通信的signal全部能采集到，包括python的os.kill发送的0，但是唯独收到kill信号的主进程的这个信号没有捕获迹象<br><br>重新试图使用&#x2F;sys&#x2F;kernel&#x2F;debug&#x2F;tracing配置捕捉deliver和gengerate的signal，第一次尝试也是唯独没有捕获到主进程消失的kill信号<br></p>
+<p>1120记录跟进<br><br>找到另一个os内核部门的大佬，perf record -e ‘signal:signal_generate’ –filter ‘sig&#x3D;&#x3D;9’ -g -a –call-graph dwarf<br>跟进到了9信号是由pgrep杀死，查看发现pkill软连接到pgrep上，也就是有程序调用了系统命令pkill(违反了编码规范的)，grep全局代码发现自己承接的组件代码调用pkill -9 -P pid杀死了进程<br>修改使用Process对象的terminate方法，进行压测，问题解决未复现</p>
+<p>综上：<br>1.不要违规使用前人血泪教训<br>2.要学习使用perf工具和kernel debug</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/10/20/site-learning-objectives/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/20/site-learning-objectives/" class="post-title-link" itemprop="url">建站初衷</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-20 22:59:52" itemprop="dateCreated datePublished" datetime="2021-10-20T22:59:52+00:00">2021-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <h2 id="本站搭建旨在记录和指导自己的学习过程和目标"><a href="#本站搭建旨在记录和指导自己的学习过程和目标" class="headerlink" title="本站搭建旨在记录和指导自己的学习过程和目标"></a>本站搭建旨在记录和指导自己的学习过程和目标</h2><p><del><a href="/2021/10/16/how-to-init-blog-by-hexo/" title="使用hexo和github搭建自己的blog">利用hexo搭建一个基本的blog</a></del> —- done</p>
+<a href="/2021/10/20/md-learning/" title="基于GFM学习markdown">深入学习使用markdown语法</a> ---- doing
+
+<p>markdown引申HTML —- hold</p>
+<p>markdown引申graphviz —- hold</p>
+<p>nginx —- hold</p>
+<p>perf —- hold</p>
+<p>bpftrace —- hold</p>
+<p>how init vimrc —- hold</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/10/20/md-learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/20/md-learning/" class="post-title-link" itemprop="url">基于GFM学习markdown</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-20 22:29:55" itemprop="dateCreated datePublished" datetime="2021-10-20T22:29:55+00:00">2021-10-20</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><a target="_blank" rel="noopener" href="https://github.github.com/gfm/">GitHub Flavored Markdown Spec</a></p>
+<hr>
+<h1 id="一、-文档分块"><a href="#一、-文档分块" class="headerlink" title="一、 文档分块"></a>一、 文档分块</h1><ul>
+<li>以0-3个空格开头且后跟多于三个<code>-</code>,<code>_</code>,<code>*</code>字符的形式分割主题块<blockquote>
+<p>建议以<code>---</code>,<code>___</code>,<code>***</code>为一行分割主题</p>
+</blockquote>
+</li>
+<li>markdown同HTML分为六级主题，以1-6个<code>#</code>字符，分别表示1-6级主题<blockquote>
+<p><code># 一级主题</code><br><code>## 二级主题</code><br><code>### 三级主题</code><br><code>#### 四级主题</code><br><code>##### 五级主题</code><br><code>###### 六级主题</code></p>
+</blockquote>
+</li>
+</ul>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2021/10/16/how-to-init-blog-by-hexo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="HanJiangtao">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Han壮壮">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2021/10/16/how-to-init-blog-by-hexo/" class="post-title-link" itemprop="url">使用hexo和github搭建自己的blog</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-10-16 22:40:53" itemprop="dateCreated datePublished" datetime="2021-10-16T22:40:53+00:00">2021-10-16</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新于</span>
+      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E7%BB%8F%E9%AA%8C/" itemprop="url" rel="index"><span itemprop="name">经验</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>开始记录如何通过hexo和github搭建自己的blog<br>网上蛮多教程在如何发布blog和管理blog本身内容语焉不详，我写这个教程主要是将整个端到端流程记录下来，包括如何将自己买的域名解析至github pages</p>
+<h1 id="1-安装hexo（centos）"><a href="#1-安装hexo（centos）" class="headerlink" title="1. 安装hexo（centos）"></a>1. 安装hexo（centos）</h1><blockquote>
+<ol>
+<li>yum install npm 安装npm包管理器</li>
+<li>npm config set registry <a target="_blank" rel="noopener" href="https://registry.npm.taobao.org/">https://registry.npm.taobao.org</a> 配置npm源<br>3.npm install -g hexo 安装hexo</li>
+</ol>
+</blockquote>
+<h1 id="2-创建github个人pages仓库"><a href="#2-创建github个人pages仓库" class="headerlink" title="2. 创建github个人pages仓库"></a>2. 创建github个人pages仓库</h1><blockquote>
+<ol>
+<li>登陆github创建仓库，仓库名要为username.github.io 如图：<img src="/2021/10/16/how-to-init-blog-by-hexo/git_pages_create.jpg" class=""></li>
+<li>这时github让开发者初始化仓库的界面如图：<img src="/2021/10/16/how-to-init-blog-by-hexo/git_init.jpg" class=""></li>
+<li>完成上面两步，在git网站的操作也结束了，不用着急按照网站上提示初始化仓库，后续我们直接将hexo相关内容上传初始化网站</li>
+<li>另外，本教程默认已经完成了你自己host的git环境已经ready，不再赘述安装git和ssh-key的添加</li>
+</ol>
+</blockquote>
+<h1 id="3-本地hexo内容"><a href="#3-本地hexo内容" class="headerlink" title="3. 本地hexo内容"></a>3. 本地hexo内容</h1><blockquote>
+<ol>
+<li>mkdir -p blog创建工作目录</li>
+<li>cd blog进入工作目录</li>
+<li>hexo init初始化hexo内容</li>
+<li>git init初始化git仓库如上2.2图片</li>
+<li>git add .</li>
+<li>git commit -m “blog init”</li>
+<li>git branch -M source将源文件提交到source分支，后续gitpages在master分支展现</li>
+<li>git remote add origin <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#x62;&#x2e;&#99;&#x6f;&#x6d;</a>:xxxx.git最后的这个git链接为2.2操作git网站的你自己的git仓链接</li>
+<li>git push -u origin source 将hexo init完的内容推送至git仓库</li>
+</ol>
+</blockquote>
+<h1 id="4-修改站点文件（即blog文件夹下的文体）以达到访问username-github-io来访问我们blog的目的"><a href="#4-修改站点文件（即blog文件夹下的文体）以达到访问username-github-io来访问我们blog的目的" class="headerlink" title="4. 修改站点文件（即blog文件夹下的文体）以达到访问username.github.io来访问我们blog的目的"></a>4. 修改站点文件（即blog文件夹下的文体）以达到访问username.github.io来访问我们blog的目的</h1><blockquote>
+<ol>
+<li>将下面内容添加至package.json（如果已经有就跳过）</li>
+</ol>
+</blockquote>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">    </span><br><span class="line">  <span class="attr">&quot;scripts&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;build&quot;</span><span class="punctuation">:</span> <span class="string">&quot;hexo generate&quot;</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  ...</span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<ol start="2">
+<li>新建.github&#x2F;workflows&#x2F;pages.yml，并添加如下内容：</li>
+</ol>
+</blockquote>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">name:</span> <span class="string">Pages</span></span><br><span class="line"></span><br><span class="line"><span class="attr">on:</span></span><br><span class="line">  <span class="attr">push:</span></span><br><span class="line">    <span class="attr">branches:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="string">source</span>  <span class="comment"># default branch</span></span><br><span class="line"></span><br><span class="line"><span class="attr">jobs:</span></span><br><span class="line">  <span class="attr">pages:</span></span><br><span class="line">    <span class="attr">runs-on:</span> <span class="string">ubuntu-latest</span></span><br><span class="line">    <span class="attr">steps:</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">uses:</span> <span class="string">actions/checkout@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">submodules:</span> <span class="string">&#x27;true&#x27;</span> <span class="comment">#敲重点，这里基本上没有已有教程会特意强调这里，这个with块，作用很大。详见附加内容1</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Use</span> <span class="string">Node.js</span> <span class="number">12.</span><span class="string">x</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/setup-node@v1</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">node-version:</span> <span class="string">&#x27;12.x&#x27;</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Cache</span> <span class="string">NPM</span> <span class="string">dependencies</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">actions/cache@v2</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">path:</span> <span class="string">node_modules</span></span><br><span class="line">          <span class="attr">key:</span> <span class="string">$&#123;&#123;</span> <span class="string">runner.OS</span> <span class="string">&#125;&#125;-npm-cache</span></span><br><span class="line">          <span class="attr">restore-keys:</span> <span class="string">|</span></span><br><span class="line"><span class="string">            $&#123;&#123; runner.OS &#125;&#125;-npm-cache</span></span><br><span class="line"><span class="string"></span>      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Install</span> <span class="string">Dependencies</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">install</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Build</span></span><br><span class="line">        <span class="attr">run:</span> <span class="string">npm</span> <span class="string">run</span> <span class="string">build</span></span><br><span class="line">      <span class="bullet">-</span> <span class="attr">name:</span> <span class="string">Deploy</span></span><br><span class="line">        <span class="attr">uses:</span> <span class="string">peaceiris/actions-gh-pages@v3</span></span><br><span class="line">        <span class="attr">with:</span></span><br><span class="line">          <span class="attr">github_token:</span> <span class="string">$&#123;&#123;</span> <span class="string">secrets.GITHUB_TOKEN</span> <span class="string">&#125;&#125;</span></span><br><span class="line">          <span class="attr">publish_dir:</span> <span class="string">./public</span></span><br><span class="line">          <span class="attr">publish_branch:</span> <span class="string">master</span>  <span class="comment"># deploying branch</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol start="3">
+<li>将上述两步的修改，推送至git仓库的source分支。访问username.github.io就可以看到hexo的欢迎页了。</li>
+</ol>
+</blockquote>
+<h1 id="5-更换theme（建站换主题要一气呵成嘛）"><a href="#5-更换theme（建站换主题要一气呵成嘛）" class="headerlink" title="5. 更换theme（建站换主题要一气呵成嘛）"></a>5. 更换theme（建站换主题要一气呵成嘛）</h1><blockquote>
+<ol>
+<li>选定一个自己喜欢的主题（直接在github搜索hexo-theme）</li>
+<li>本教程以换用material为demo，图为material的git主页： <img src="/2021/10/16/how-to-init-blog-by-hexo/hexo-theme-material.jpg" class=""></li>
+<li>点击上图中fork按钮，fork至自己的仓库</li>
+<li>git submodule init</li>
+<li>git submodule add <a href="mailto:&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;">&#103;&#105;&#116;&#64;&#103;&#x69;&#116;&#x68;&#x75;&#98;&#46;&#99;&#111;&#x6d;</a>:xxxxx&#x2F;hexo-theme-material.git themes&#x2F;material将我们fork出来的theme仓库，作为hexo的子模块（git链接为我们上面fork出来的仓库链接）</li>
+<li>git submodule sync</li>
+<li>git submodule update 上述两步将子模块内容拉取至本地</li>
+<li>修改_config.yml中theme: xxxx为theme: material，theme:后面跟的是git theme子模块的文件夹的名字</li>
+<li>git add .&amp;&amp; git commit -m “change theme” &amp;&amp; git push origin source将修改推送至git仓库，访问username.github.io看已经变成我们新更换的主题。</li>
+</ol>
+</blockquote>
+<h1 id="附加内容"><a href="#附加内容" class="headerlink" title="附加内容"></a>附加内容</h1><h2 id="1-在-github-x2F-workflows-x2F-pages-yml中添加的with代码块"><a href="#1-在-github-x2F-workflows-x2F-pages-yml中添加的with代码块" class="headerlink" title="1. 在.github&#x2F;workflows&#x2F;pages.yml中添加的with代码块:"></a>1. 在.github&#x2F;workflows&#x2F;pages.yml中添加的with代码块:</h2><p>我们在git仓库的source分支维护了hexo的源内容，包括本教程的后半部更换blog的theme，theme是在themes&#x2F;文件夹下维护的，且通过本教程通过git submodule来维护其链接，那么在git pages的action行为中，单拉git仓的source分支，是缺失了themes文件夹下内容的下载的，那么添加的with代码块的作用就是：git action的时候将source分支和themes submodule都下载，后续的action才能执行，详细的action行为可以在git仓库的actions页签查看。</p>
+<h2 id="2-hexo使能markdown表格不显示问题（直接显示源内容而不是表格）"><a href="#2-hexo使能markdown表格不显示问题（直接显示源内容而不是表格）" class="headerlink" title="2.hexo使能markdown表格不显示问题（直接显示源内容而不是表格）"></a>2.hexo使能markdown表格不显示问题（直接显示源内容而不是表格）</h2><p>RE:与正文空两行即可</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2023</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HanJiangtao</span>
+  </div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
 </html>
