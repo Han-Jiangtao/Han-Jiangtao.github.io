@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
-<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 6.3.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Hexo Theme Redefine">
+    
+    <meta name="author" content="HanJiangtao">
+    <!-- preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
-  <link rel="mask-icon" href="/images/logo.svg" color="#222">
-
-<link rel="stylesheet" href="/css/main.css">
-
-
-
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha256-CTSx/A06dm1B063156EVh15m6Y67pAjZZaQc89LLSrU=" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
-
-<script class="next-config" data-name="main" type="application/json">{"hostname":"han-jiangtao.github.io","root":"/","images":"/images","scheme":"Muse","darkmode":false,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"}}</script><script src="/js/config.js"></script>
-
-    <meta name="description" content="树莓派搭建家庭科学上网旁路由以下任何行为均需要在合法合规的前提下进行。知法懂法！！！！本教程以阿里云代理为前提，无任何违法行为和倾向。家里有多台设备有科学上网诉求，但是配置只允许2个设备接入。来回切换体验很差劲，手头有个树莓派也省的额外购买。梅林之前已经搞过一次，兴趣不大，另外现在论坛暂未支持trojan插件，所以放弃。openwrt已经有trojan插件且有github每日编译，配置也不复杂，完">
+    
+    <!--- Seo Part-->
+    
+    <link rel="canonical" href="http://blog.hanjiangtao.xyz/2022/04/26/openwrt-trojan/"/>
+    <meta name="robots" content="index,follow">
+    <meta name="googlebot" content="index,follow">
+    <meta name="revisit-after" content="1 days">
+    
+        <meta name="description" content="树莓派搭建家庭科学上网旁路由以下任何行为均需要在合法合规的前提下进行。知法懂法！！！！本教程以阿里云代理为前提，无任何违法行为和倾向。家里有多台设备有科学上网诉求，但是配置只允许2个设备接入。来回切换体验很差劲，手头有个树莓派也省的额外购买。梅林之前已经搞过一次，兴趣不大，另外现在论坛暂未支持trojan插件，所以放弃。openwrt已经有trojan插件且有github每日编译，配置也不复杂，完">
 <meta property="og:type" content="article">
 <meta property="og:title" content="树莓派刷机openwrt配置trojan">
-<meta property="og:url" content="https://han-jiangtao.github.io/2022/04/26/openwrt-trojan/index.html">
-<meta property="og:site_name" content="Han壮壮">
+<meta property="og:url" content="http://blog.hanjiangtao.xyz/2022/04/26/openwrt-trojan/index.html">
+<meta property="og:site_name" content="HanJiangtao">
 <meta property="og:description" content="树莓派搭建家庭科学上网旁路由以下任何行为均需要在合法合规的前提下进行。知法懂法！！！！本教程以阿里云代理为前提，无任何违法行为和倾向。家里有多台设备有科学上网诉求，但是配置只允许2个设备接入。来回切换体验很差劲，手头有个树莓派也省的额外购买。梅林之前已经搞过一次，兴趣不大，另外现在论坛暂未支持trojan插件，所以放弃。openwrt已经有trojan插件且有github每日编译，配置也不复杂，完">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/family_route_demo.png">
@@ -35,287 +34,733 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_ipv4.jpg">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_dns.jpg">
 <meta property="article:published_time" content="2022-04-26T20:22:04.000Z">
-<meta property="article:modified_time" content="2023-11-13T14:23:57.532Z">
+<meta property="article:modified_time" content="2023-12-02T16:12:58.529Z">
 <meta property="article:author" content="HanJiangtao">
 <meta property="article:tag" content="环境搭建">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/family_route_demo.png">
+    
+    
+    <!--- Icon Part-->
+    <link rel="icon" type="image/png" href="/images/redefine-favicon.svg" sizes="192x192">
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/redefine-favicon.svg">
+    <meta name="theme-color" content="#A31F34">
+    <link rel="shortcut icon" href="/images/redefine-favicon.svg">
+    <!--- Page Info-->
+    
+    <title>
+        
+            树莓派刷机openwrt配置trojan -
+        
+        HanJiangtao
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
 
 
-<link rel="canonical" href="https://han-jiangtao.github.io/2022/04/26/openwrt-trojan/">
+    
+        
+<link rel="stylesheet" href="/assets/build/styles.css">
+
+    
+
+    
+<link rel="stylesheet" href="/fonts/fonts.css">
+
+    
+<link rel="stylesheet" href="/fonts/Satoshi/satoshi.css">
+
+    
+<link rel="stylesheet" href="/fonts/Chillax/chillax.css">
+
+    <!--- Font Part-->
+    
+    
+    
+    
+
+    <!--- Inject Part-->
+    
+    <script id="hexo-configurations">
+    window.config = {"hostname":"blog.hanjiangtao.xyz","root":"/","language":"zh-CN","path":"search.xml"};
+    window.theme = {"articles":{"style":{"font_size":"16px","line_height":1.5,"image_border_radius":"14px","image_alignment":"center","image_caption":false,"link_icon":true,"title_alignment":"left"},"word_count":{"enable":true,"count":true,"min2read":true},"author_label":{"enable":true,"auto":false,"list":[]},"code_block":{"copy":true,"style":"mac","font":{"enable":false,"family":null,"url":null}},"toc":{"enable":true,"max_depth":3,"number":false,"expand":true,"init_open":true},"copyright":{"enable":true,"default":"cc_by_nc_sa"},"lazyload":true,"recommendation":{"enable":false,"title":"推荐阅读","limit":3,"mobile_limit":2,"placeholder":"/images/wallhaven-wqery6-light.webp","skip_dirs":[]}},"colors":{"primary":"#A31F34","secondary":null},"global":{"fonts":{"chinese":{"enable":false,"family":null,"url":null},"english":{"enable":false,"family":null,"url":null}},"content_max_width":"1000px","sidebar_width":"210px","hover":{"shadow":true,"scale":false},"scroll_progress":{"bar":false,"percentage":true},"website_counter":{"url":"https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js","enable":true,"site_pv":true,"site_uv":true,"post_pv":true},"single_page":true,"open_graph":true,"google_analytics":{"enable":false,"id":null}},"home_banner":{"enable":true,"style":"fixed","image":{"light":"/images/wallhaven-wqery6-light.webp","dark":"/images/wallhaven-wqery6-dark.webp"},"title":"Theme Redefine","subtitle":{"text":[],"hitokoto":{"enable":false,"api":"https://v1.hitokoto.cn"},"typing_speed":100,"backing_speed":80,"starting_delay":500,"backing_delay":1500,"loop":true,"smart_backspace":true},"text_color":{"light":"#fff","dark":"#d1d1b6"},"text_style":{"title_size":"2.8rem","subtitle_size":"1.5rem","line_height":1.2},"custom_font":{"enable":false,"family":null,"url":null},"social_links":{"enable":false,"links":{"github":null,"instagram":null,"zhihu":null,"twitter":null,"email":null},"qrs":{"weixin":null}}},"plugins":{"feed":{"enable":false},"aplayer":{"enable":false,"type":"fixed","audios":[{"name":null,"artist":null,"url":null,"cover":null}]},"mermaid":{"enable":false,"version":"9.3.0"}},"version":"2.5.6","navbar":{"auto_hide":false,"color":{"left":"#f78736","right":"#367df7","transparency":35},"links":{"Home":{"path":"/","icon":"fa-regular fa-house"}},"search":{"enable":false,"preload":true}},"page_templates":{"friends_column":2,"tags_style":"blur"},"home":{"sidebar":{"enable":true,"position":"left","first_item":"menu","announcement":null,"links":null},"article_date_format":"auto","categories":{"enable":true,"limit":3},"tags":{"enable":true,"limit":3}},"footerStart":"2022/8/17 11:45:14"};
+    window.lang_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 个月前","year":"%s 年前"};
+    window.data = {"masonry":false};
+  </script>
+    
+    <!--- Fontawesome Part-->
+    
+<link rel="stylesheet" href="/fontawesome/fontawesome.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/brands.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/solid.min.css">
+
+    
+<link rel="stylesheet" href="/fontawesome/regular.min.css">
+
+    
+    
+    
+    
+<meta name="generator" content="Hexo 6.3.0"></head>
 
 
+<body>
+<div class="progress-bar-container">
+    
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://han-jiangtao.github.io/2022/04/26/openwrt-trojan/","path":"2022/04/26/openwrt-trojan/","title":"树莓派刷机openwrt配置trojan"}</script>
-
-<script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>树莓派刷机openwrt配置trojan | Han壮壮</title>
-  
-
-
-
-
-
-
-
-
-  <noscript>
-    <link rel="stylesheet" href="/css/noscript.css">
-  </noscript>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
-  <div class="headband"></div>
-
-  <main class="main">
-    <div class="column">
-      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
-  <div class="site-nav-toggle">
-    <div class="toggle" aria-label="切换导航栏" role="button">
-    </div>
-  </div>
-
-  <div class="site-meta">
-
-    <a href="/" class="brand" rel="start">
-      <i class="logo-line"></i>
-      <p class="site-title">Han壮壮</p>
-      <i class="logo-line"></i>
-    </a>
-      <p class="site-subtitle" itemprop="description">test hard</p>
-  </div>
-
-  <div class="site-nav-right">
-    <div class="toggle popup-trigger" aria-label="搜索" role="button">
-    </div>
-  </div>
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="swup-progress-icon">
+            <i class="fa-solid fa-circle-notch fa-spin"></i>
+        </span>
+    
 </div>
 
 
+<main class="page-container" id="swup">
+
+    
+
+    <div class="main-content-container">
 
 
+        <div class="main-content-header">
+            <header class="navbar-container">
+    
+    <div class="navbar-content">
+        <div class="left">
+            
+            <a class="logo-title" href="/">
+                
+                HanJiangtao
+                
+            </a>
+        </div>
 
+        <div class="right">
+            <!-- PC -->
+            <div class="desktop">
+                <ul class="navbar-list">
+                    
+                        
+                            <li class="navbar-item">
+                                <!-- Menu -->
+                                <a class="" 
+                                    href="/"  >
+                                    
+                                        
+                                            <i class="fa-regular fa-house"></i>
+                                        
+                                        首页
+                                    
+                                </a>
+                                <!-- Submenu -->
+                                
+                            </li>
+                    
+                    
+                </ul>
+            </div>
+            <!-- Mobile -->
+            <div class="mobile">
+                
+                <div class="icon-item navbar-bar">
+                    <div class="navbar-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <!-- Mobile drawer -->
+    <div class="navbar-drawer w-full absolute top-0 left-0 bg-background-color">
+        <ul class="drawer-navbar-list flex flex-col justify-start items-center">
+            
+                
+                    <li class="drawer-navbar-item text-base my-1.5 flex justify-center items-center">
+                        <a class="rounded-3xl py-1.5 px-5 hover:border hover:!text-primary active:!text-primary group " 
+                        href="/"  >
+                             
+                                
+                                    <i class="fa-regular fa-house"></i>
+                                
+                                首页
+                            
+                        </a>
+                    </li>
+                    <!-- Submenu -->
+                    
+            
+
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
 
 </header>
-        
-  
-  <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
-      <ul class="sidebar-nav">
-        <li class="sidebar-nav-toc">
-          文章目录
-        </li>
-        <li class="sidebar-nav-overview">
-          站点概览
-        </li>
-      </ul>
-
-      <div class="sidebar-panel-container">
-        <!--noindex-->
-        <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%A0%91%E8%8E%93%E6%B4%BE%E6%90%AD%E5%BB%BA%E5%AE%B6%E5%BA%AD%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91%E6%97%81%E8%B7%AF%E7%94%B1"><span class="nav-number">1.</span> <span class="nav-text">树莓派搭建家庭科学上网旁路由</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-%E9%95%9C%E5%83%8F%E5%87%86%E5%A4%87"><span class="nav-number">2.</span> <span class="nav-text">1.镜像准备</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-%E7%83%A7%E5%BD%95%E9%95%9C%E5%83%8F"><span class="nav-number">3.</span> <span class="nav-text">2.烧录镜像</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-OpenWrt%E9%85%8D%E7%BD%AE"><span class="nav-number">4.</span> <span class="nav-text">3.OpenWrt配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4-%E6%89%8B%E6%9C%BAwifi%E9%BB%98%E8%AE%A4%E4%BB%A3%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">4.手机wifi默认代理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5-PC%E7%AB%AF%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E8%B5%B0%E6%97%81%E8%B7%AF%E7%94%B1%E4%BB%A3%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">5.PC端配置默认走旁路由代理</span></a></li></ol></div>
-        </div>
-        <!--/noindex-->
-
-        <div class="site-overview-wrap sidebar-panel">
-          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
-  <p class="site-author-name" itemprop="name">HanJiangtao</p>
-  <div class="site-description" itemprop="description"></div>
-</div>
-<div class="site-state-wrap animated">
-  <nav class="site-state">
-      <div class="site-state-item site-state-posts">
-        <a href="/archives/">
-          <span class="site-state-item-count">8</span>
-          <span class="site-state-item-name">日志</span>
-        </a>
-      </div>
-      <div class="site-state-item site-state-categories">
-        <span class="site-state-item-count">2</span>
-        <span class="site-state-item-name">分类</span>
-      </div>
-      <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">4</span>
-        <span class="site-state-item-name">标签</span>
-      </div>
-  </nav>
-</div>
 
         </div>
-      </div>
-    </div>
 
-    
-  </aside>
+        <div class="main-content-body">
+
+            
+
+            <div class="main-content">
+
+                
+                    @import '../common/variables'
+
+$arrow-icon-width = 16px
+$post-nav-max-width = 220px
+$article-title-font-size = 3.2rem
+$temp-toc-width = hexo-config('global.sidebar_width')
+$toc-container-width = $temp-toc-width ? convert($temp-toc-width) : 210px
+$without-toc-container-width = calc(100% - $temp-toc-width)
+$gap = 30px
+
+.post-page-container
+  display flex
+  position relative
+  justify-content space-between
+  box-sizing border-box
+  width 100%
+  height 100%
+  gap 0px
+
+  +redefine-mobile()
+    overflow-x hidden
 
 
-    </div>
+  &.show-toc
+    gap 30px
 
-    <div class="main-inner post posts-expand">
+    .toc-content-container
+      display block
+      opacity 1
+      transition opacity 0.2s ease-in 0.2s
+      width $toc-container-width
+
+      &:hover::-webkit-scrollbar-thumb
+        border 3px solid rgba(183, 183, 183, 0.3)
+
+      &::-webkit-scrollbar
+        width 6px
+        height 6px
+        transition all 0.2s ease
+        display block
+
+      &::-webkit-scrollbar-track
+        background transparent
+        border none
+
+      &::-webkit-scrollbar-thumb
+        border-radius 20px
+        border 3px solid rgba(183, 183, 183, 0)
+        transition all 0.2s ease
+
+    .article-content-container
+      width calc(100% - 210px) !important
+
+  +redefine-tablet()
+    .toc-content-container
+      display none !important
+
+    .article-content-container
+      width 100% !important
+
+    &.show-toc
+      .toc-content-container
+        display none
+
+      .article-content-container
+        width 100% !important
+
+  .article-content-container
+    width 100%
+    transition width 0.2s ease
+    redefine-container(
+      false,
+      0,
+      0,
+      0,
+      30px
+    )
+
+    +redefine-mobile()
+      padding 1.2rem 0.2rem
+      box-shadow none !important
+      max-width 100vw
+
+    .article-header .avatar img
+          border-radius: $redefine-border-radius-medium * 0.87
+          width 100%
+          height 100%
+          // background var(--avatar-background-color)
+
+    .article-header, .article-header-meta-info
+      margin-top 16px
+
+      +redefine-tablet()
+        transform scale(0.9)
+        transform-origin left top
+
+    .article-content
+      margin-top $spacing-unit
+      padding-bottom 10px
+      word-wrap break-word
+      border-bottom 1px solid var(--border-color)
+      color var(--default-text-color)
+
+      &>:first-child
+        margin-top 0 !important
+
+    .post-tags-box
+      display none
+      margin-top 1.6rem
+      justify-content center
+      font-size 1.1rem
+
+      +redefine-tablet()
+        display flex
+
+      +redefine-mobile()
+        margin-top 1.2rem
+        font-size 1rem
+        flex-wrap wrap
+
+      .tag-item
+        margin 0 0.25rem
+
+    .post-copyright-info
+      //margin-top $spacing-unit
+      width 100%
+
+      //+redefine-tablet()
+      //  margin-top ($spacing-unit * 0.8) !important
+
+    .article-nav
+      //height 40px
+      //margin-top $spacing-unit
+
+      .article-prev, .article-next
+
+        a
+          position relative
+          display block
+          width 100%
+          height 100%
+          box-sizing border-box
+
+          &.prev
+            padding-left $arrow-icon-width
+
+          &.next
+            padding-right $arrow-icon-width
+
+          .arrow-icon
+            position absolute
+            top 0
+            height 100%
+            width $arrow-icon-width
+
+            &.left
+              left 0
+
+            &.right
+              right 0
+
+          .title
+            width 100%
+            height 100%
+
+      .post-nav-item
+        display none
+
+        +redefine-tablet()
+          display inline-block
+
+      .post-nav-title-item
+        overflow hidden
+        text-overflow ellipsis
+        white-space nowrap
+
+        +redefine-tablet()
+          display none
+
+    .recommended-article
+      overflow visible !important
+
+      .recommended-mobile
+        display none
+        +redefine-tablet()
+          display block
+
+      .recommended-desktop
+        display block
+        +redefine-tablet()
+          display none
+
+      .recommended-article-header
+        font-size 28px
+        font-weight 550
+        margin-top 2.8rem
+
+      .recommended-article-group
+        padding 10px 0
+        display flex
+        justify-content space-between
+        flex-wrap wrap
+        overflow visible !important
+
+        @media screen and (max-width $device-tablet)
+          height 190px
+          overflow scroll
+
+          &::-webkit-scrollbar
+            width 0 !important
+
+          -ms-overflow-style none
+
+        .recommended-article-item
+          redefine-container(
+            false,
+            0,
+            0,
+            10px,
+            0
+          )
+          box-shadow var(--redefine-box-shadow-flat)
+          padding 12px !important
+          display flex
+          flex-wrap wrap
+          align-content center
+          justify-content center
+          align-items center
+          overflow hidden
+          width 32%
+          max-height 200px
+          margin-top: $gap * 0.5
+          margin-right 0
+
+          +redefine-tablet()
+            width 49%
+
+          img
+            display flex
+            width calc(100% + 24px)
+            height 150px
+            object-fit cover
+            border-radius $redefine-border-radius-medium-top
+            margin -12px -12px 0 -12px !important
+
+          span
+            margin-top 0.5rem
+            display block
+            display -webkit-box
+            -webkit-box-orient vertical
+            -webkit-line-clamp 1
+            overflow hidden
+
+  .toc-content-container
+    white-space nowrap
+    opacity 0
+    position sticky
+    top: $navbar-height + $spacing-unit
+    // border-radius $redefine-border-radius-large
+    border-radius $redefine-border-radius-none
+    // display none
+    // visibility hidden
+    // width $toc-container-width
+    width 0
+    height auto
+    max-height calc(100vh - 210px)
+    //margin-left 30px
+    // z-index $z-index-6
+    overflow-y auto
+    overflow-x hidden
+    float right
+    padding 10px
+    box-sizing border-box
+    box-shadow none !important
+    transition opacity 0.3s ease-out 0.3s
+    hover-style(
+      false,
+      0,
+      0
+    )
+    transition-t('display', '0', '0.3', 'ease-out')
+
+    +redefine-tablet()
+      left 0 !important
+      display none !important
+
+  figure.image-caption
+    img
+      margin-bottom 0
+
+    figcaption
+      margin-top 5px
+      margin-bottom 10px
+      text-align center
+      font-size 0.9rem
+      color var(--third-text-color)
 
 
-  
+                
 
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://han-jiangtao.github.io/2022/04/26/openwrt-trojan/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="HanJiangtao">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Han壮壮">
-      <meta itemprop="description" content="">
-    </span>
-
-    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="树莓派刷机openwrt配置trojan | Han壮壮">
-      <meta itemprop="description" content="">
-    </span>
-      <header class="post-header">
-        <h1 class="post-title" itemprop="name headline">
-          树莓派刷机openwrt配置trojan
-        </h1>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2022-04-26 20:22:04" itemprop="dateCreated datePublished" datetime="2022-04-26T20:22:04+00:00">2022-04-26</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新于</span>
-      <time title="修改时间：2023-11-13 14:23:57" itemprop="dateModified" datetime="2023-11-13T14:23:57+00:00">2023-11-13</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/%E6%8A%98%E8%85%BE/" itemprop="url" rel="index"><span itemprop="name">折腾</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody"><h1 id="树莓派搭建家庭科学上网旁路由"><a href="#树莓派搭建家庭科学上网旁路由" class="headerlink" title="树莓派搭建家庭科学上网旁路由"></a>树莓派搭建家庭科学上网旁路由</h1><p>以下任何行为均需要在合法合规的前提下进行。</br><br>知法懂法！！！！本教程以阿里云代理为前提，无任何违法行为和倾向。</br><br>家里有多台设备有科学上网诉求，但是配置只允许2个设备接入。来回切换体验很差劲，手头有个树莓派也省的额外购买。</br><br>梅林之前已经搞过一次，兴趣不大，另外现在论坛暂未支持trojan插件，所以放弃。</br><br>openwrt已经有trojan插件且有github每日编译，配置也不复杂，完成了图形化配置所以选型用openwrt。</br></p>
-<p>当前家里路由及设备连接如图所示:</br><br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/family_route_demo.png"></p>
-<h1 id="1-镜像准备"><a href="#1-镜像准备" class="headerlink" title="1.镜像准备"></a>1.镜像准备</h1><p>感谢@SuLingGG 每日构建openwrt镜像.</br><br>仓库地址:<a target="_blank" rel="noopener" href="https://github.com/SulingGG/Openwrt-rpi">https://github.com/SulingGG/Openwrt-rpi</a></br><br>下载地址:<a target="_blank" rel="noopener" href="https://doc.openwrt.cc/2-OpenWrt-Rpi/1-Download/">https://doc.openwrt.cc/2-OpenWrt-Rpi/1-Download/</a></br><br>当前已支持设备可以在下载地址查看，树莓派系列都有支持下载，我这边使用了3B的squashfs-sysupgrade.img.gz镜像</br></p>
-<h1 id="2-烧录镜像"><a href="#2-烧录镜像" class="headerlink" title="2.烧录镜像"></a>2.烧录镜像</h1><p>准备一张4G以上的SD卡，使用SD Card Formatter擦除SD卡。</br><br>使用balenaEther，烧写镜像<img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/balenaEther_flash.png"><br>烧录完成后插入树莓派的SD卡槽，网线暂时不要连接到路由器上。</br></p>
-<h1 id="3-OpenWrt配置"><a href="#3-OpenWrt配置" class="headerlink" title="3.OpenWrt配置"></a>3.OpenWrt配置</h1><p>网上教程一般推荐用网线将树莓派和PC相连，然后登录OpenWrt的配置界面进行配置，当然下述方式不成功的话，树莓派与PC直连效果一样。</br><br>当下我们选择另外的方式，SD卡烧录完成并放进树莓派后启动树莓派，手机即可搜到OpenWrt名字的wifi。<br>大概过3-5min让树莓派完成配置，wifi连接到对应网络上。手机查看当前wifi信息可以看到网段为192.168.1.xx，网关为192.168.1.1</br><br>手机浏览器登录192.168.1.1，用户名密码默认为root&#x2F;password。<br>登录进后，选择网络分类接口：<br>点击lan修改：配置成如下(注意配置项的ipv4相关网段均为主路由的网段)<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_network_interface.jpeg"></br><br>明显上图中192.168.50.1为我们主路由ip，则本例中旁路由ipv4地址为192.168.50.2，并且在旁路由上关闭了DHCP服务</br><br>保存并应用后，将主路由和树莓派网线连接，可以在主路由器上发现，对应的ipv4地址分配给了我们配置的设备。</br><br>重启树莓派</br></p>
-<p>在PC上打开我们设置的树莓派的ipv4地址192.168.50.2(root&#x2F;password)</br><br>进入服务-&gt;ssr-&gt;服务器节点，将自己的trojan订阅链接填入，如下图:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_ssr_server_url.jpeg"><br>订阅成功后界面会有下图信息:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_success_add_ssr_server.jpeg"><br>点击保存后，可以进入下图界面进行连通性确认:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_trojan_connect_success.jpeg"><br>上图即为链接可访问，到此旁路由的设置完成。</p>
-<h1 id="4-手机wifi默认代理"><a href="#4-手机wifi默认代理" class="headerlink" title="4.手机wifi默认代理"></a>4.手机wifi默认代理</h1><p>我手边手机一般连接主卧的二级中继路由，手头是iphone(Android同理)</br><br>将手机连接至wifi后，将ipv4手动配置，由于iphone都在一起，所以ip、dns、gateway统一配置</br><br>ip配置为本身原来的即可(链接好wifi后，详细界面可以看到)</br><br>dns配置为旁路由ip，gateway配置为旁路由ip。<br>全部配置完成后，如下两图:<br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_ipv4.jpg"><br><img src="https://cdn.jsdelivr.net/gh/Han-Jiangtao/picgo/img/openwrt_iphone_dns.jpg"><br>以上，即为手机端配置走旁路由代理的方法。</p>
-<h1 id="5-PC端配置默认走旁路由代理"><a href="#5-PC端配置默认走旁路由代理" class="headerlink" title="5.PC端配置默认走旁路由代理"></a>5.PC端配置默认走旁路由代理</h1><p>同手机端，ip设为dhcp本身给的ip，dns和gateway走旁路由即可</p>
-
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-          <div class="post-tags">
-              <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/" rel="tag"># 环境搭建</a>
-          </div>
-
-        
-
-          <div class="post-nav">
-            <div class="post-nav-item">
-                <a href="/2022/04/16/git-usage-records/" rel="prev" title="git使用记录">
-                  <i class="fa fa-angle-left"></i> git使用记录
-                </a>
             </div>
-            <div class="post-nav-item">
-                <a href="/2022/05/03/apple-tv/" rel="next" title="美版ATV收看国内爱优腾和直播">
-                  美版ATV收看国内爱优腾和直播 <i class="fa fa-angle-right"></i>
-                </a>
+
+            
+
+        </div>
+
+        <div class="main-content-footer">
+            <footer class="footer mt-5 py-5 h-auto text-base text-third-text-color relative border-t-2 border-t-border-color">
+    <div class="info-container py-3 text-center">
+        
+        <div class="text-center">
+            &copy;
+            
+              <span>2022</span>
+              -
+            
+            2023&nbsp;&nbsp;<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>&nbsp;&nbsp;<a href="/">HanJiangtao</a>
+        </div>
+        
+            <script data-swup-reload-script src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="relative text-center lg:absolute lg:right-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-right">
+                
+                    <span id="busuanzi_container_site_uv" class="lg:!block">
+                        <span class="text-sm">访问人数</span>
+                        <span id="busuanzi_value_site_uv"></span>
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv" class="lg:!block">
+                        <span class="text-sm">总访问量</span>
+                        <span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
             </div>
-          </div>
-    </footer>
-  </article>
+        
+        <div class="relative text-center lg:absolute lg:left-[20px] lg:top-1/2 lg:-translate-y-1/2 lg:text-left">
+            <span class="lg:block text-sm">由 <?xml version="1.0" encoding="utf-8"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg class="relative top-[2px] inline-block align-baseline" version="1.1" id="圖層_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="1rem" height="1rem" viewBox="0 0 512 512" enable-background="new 0 0 512 512" xml:space="preserve"><path fill="#0E83CD" d="M256.4,25.8l-200,115.5L56,371.5l199.6,114.7l200-115.5l0.4-230.2L256.4,25.8z M349,354.6l-18.4,10.7l-18.6-11V275H200v79.6l-18.4,10.7l-18.6-11v-197l18.5-10.6l18.5,10.8V237h112v-79.6l18.5-10.6l18.5,10.8V354.6z"/></svg><a target="_blank" class="text-base" href="https://hexo.io">Hexo</a> 驱动</span>
+            <span class="text-sm lg:block">主题&nbsp;<a class="text-base" target="_blank" href="https://github.com/EvanNotFound/hexo-theme-redefine">Redefine v2.5.6</a></span>
+        </div>
+        
+        
+            <div>
+                博客已运行 <span class="odometer" id="runtime_days" ></span> 天 <span class="odometer" id="runtime_hours"></span> 小时 <span class="odometer" id="runtime_minutes"></span> 分钟 <span class="odometer" id="runtime_seconds"></span> 秒
+            </div>
+        
+        
+            <script data-swup-reload-script>
+                try {
+                    function odometer_init() {
+                    const elements = document.querySelectorAll('.odometer');
+                    elements.forEach(el => {
+                        new Odometer({
+                            el,
+                            format: '( ddd).dd',
+                            duration: 200
+                        });
+                    });
+                    }
+                    odometer_init();
+                } catch (error) {}
+            </script>
+        
+        
+        
+    </div>  
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="article-tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="right-bottom-tools page-aside-toggle">
+                <i class="fa-regular fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fa-regular fa-comments"></i>
+            </li>
+        
+    </ul>
 </div>
 
+        </div>
+    
 
+    <div class="right-side-tools-container">
+        <div class="side-tools-container">
+    <ul class="hidden-tools-list">
+        <li class="right-bottom-tools tool-font-adjust-plus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-plus"></i>
+        </li>
 
+        <li class="right-bottom-tools tool-font-adjust-minus flex justify-center items-center">
+            <i class="fa-regular fa-magnifying-glass-minus"></i>
+        </li>
 
+        <li class="right-bottom-tools tool-dark-light-toggle flex justify-center items-center">
+            <i class="fa-regular fa-moon"></i>
+        </li>
 
+        <!-- rss -->
+        
 
+        
+
+        <li class="right-bottom-tools tool-scroll-to-bottom flex justify-center items-center">
+            <i class="fa-regular fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="visible-tools-list">
+        <li class="right-bottom-tools toggle-tools-list flex justify-center items-center">
+            <i class="fa-regular fa-cog fa-spin"></i>
+        </li>
+        
+            <li class="right-bottom-tools tool-scroll-to-top flex justify-center items-center">
+                <i class="arrow-up fas fa-arrow-up"></i>
+                <span class="percent"></span>
+            </li>
+        
+        
+    </ul>
 </div>
-  </main>
-
-  <footer class="footer">
-    <div class="footer-inner">
-
-  <div class="copyright">
-    &copy; 
-    <span itemprop="copyrightYear">2023</span>
-    <span class="with-love">
-      <i class="fa fa-heart"></i>
-    </span>
-    <span class="author" itemprop="copyrightHolder">HanJiangtao</span>
-  </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
-  </div>
 
     </div>
-  </footer>
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+
+</main>
+
+
+    
+<script src="/js/libs/Swup.min.js"></script>
+
+<script src="/js/libs/SwupSlideTheme.min.js"></script>
+
+<script src="/js/libs/SwupScriptsPlugin.min.js"></script>
+
+<script src="/js/libs/SwupProgressPlugin.min.js"></script>
+
+<script src="/js/libs/SwupScrollPlugin.min.js"></script>
+
+<script src="/js/libs/SwupPreloadPlugin.min.js"></script>
+
+<script>
+    const swup = new Swup({
+        plugins: [
+            new SwupScriptsPlugin({
+                optin: true,
+            }),
+            new SwupProgressPlugin(),
+            new SwupScrollPlugin({
+                offset: 80,
+            }),
+            new SwupSlideTheme({
+                mainElement: ".main-content-body",
+            }),
+            new SwupPreloadPlugin(),
+        ],
+        containers: ["#swup"],
+    });
+</script>
+
+
+
+
+
+
+
+<script src="/js/tools/imageViewer.js" type="module"></script>
+
+<script src="/js/utils.js" type="module"></script>
+
+<script src="/js/main.js" type="module"></script>
+
+<script src="/js/layouts/navbarShrink.js" type="module"></script>
+
+<script src="/js/tools/scrollTopBottom.js" type="module"></script>
+
+<script src="/js/tools/lightDarkSwitch.js" type="module"></script>
+
+<script src="/js/layouts/categoryList.js" type="module"></script>
+
+
+
+
+
+    
+<script src="/js/tools/codeBlock.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/layouts/lazyload.js" type="module"></script>
+
+
+
+
+    
+<script src="/js/tools/runtime.js"></script>
+
+    
+<script src="/js/libs/odometer.min.js"></script>
+
+    
+<link rel="stylesheet" href="/assets/odometer-theme-minimal.css">
+
+
+
 
   
-  <div class="toggle sidebar-toggle" role="button">
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-    <span class="toggle-line"></span>
-  </div>
-  <div class="sidebar-dimmer"></div>
-  <div class="back-to-top" role="button" aria-label="返回顶部">
-    <i class="fa fa-arrow-up fa-lg"></i>
-    <span>0%</span>
-  </div>
-
-<noscript>
-  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
-</noscript>
-
+<script src="/js/libs/Typed.min.js"></script>
 
   
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
-<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
-
-  
+<script src="/js/plugins/typed.js" type="module"></script>
 
 
 
 
 
 
-  
 
+<div class="post-scripts" data-swup-reload-script>
+    
+        
+<script src="/js/libs/anime.min.js"></script>
 
+        
+<script src="/js/tools/tocToggle.js" type="module"></script>
 
+<script src="/js/layouts/toc.js" type="module"></script>
+
+<script src="/js/plugins/tabs.js" type="module"></script>
+
+    
+</div>
 
 
 </body>
